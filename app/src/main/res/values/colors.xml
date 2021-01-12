@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="dark_theme">#121212</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!--BACKGROUND -->
+    <color name="bg_white">#ffffff</color>
+    <color name="bg_dark_blue">#171C43</color>
+    <color name="bg_yellow">#FFB84D</color>
+    <color name="bg_transparent_circle">#1AC4C4C4</color>
+    <color name="bg_grey">#E4585858</color>
+    <color name="purple">#8766FF</color>
 
-    <color name="error">#B00020</color>
+    <!-- ICON -->
+    <color name="ic_yellow">@color/bg_yellow</color>
+    <color name="ic_blue">@color/bg_dark_blue</color>
+
+    <!-- TEXTVIEW -->
+    <color name="dark">#121212</color>
+    <color name="tv_dark_blue">@color/bg_dark_blue</color>
+
+    <!-- EDIT TEXT -->
+    <color name="colorEditText">#5A404040</color>
 
 </resources>

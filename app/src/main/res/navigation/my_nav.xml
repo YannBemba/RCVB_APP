@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/spashFragment">
+    <fragment
+        android:id="@+id/spashFragment"
+        android:name="com.example.rcvb.SplashFragment"
+        android:label="fragment_spash"
+        tools:layout="@layout/fragment_spash" >
+        <action
+            android:id="@+id/action_spashFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.rcvb.onboarding.viewpager.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_inscriptionActivity2"
+            app:destination="@id/inscriptionActivity2"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_connexionActivity2"
+            app:destination="@id/connexionActivity2"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <activity
+        android:id="@+id/inscriptionActivity2"
+        android:name="com.example.rcvb.onboarding.forms.InscriptionActivity"
+        android:label="activity_inscription"
+        tools:layout="@layout/activity_inscription" />
+    <activity
+        android:id="@+id/connexionActivity2"
+        android:name="com.example.rcvb.onboarding.forms.ConnexionActivity"
+        android:label="activity_connexion"
+        tools:layout="@layout/activity_connexion" />
+</navigation>
