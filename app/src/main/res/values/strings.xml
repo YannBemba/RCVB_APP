@@ -16,4 +16,6 @@
     <string name="tel">Téléphone</string>
     <string name="confirmation">Confirmation</string>
     <string name="mdp">Mot de passe</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="connecter_api">ou se connecter avec</string>
 </resources>

@@ -22,11 +22,18 @@
         <item name="fontFamily">@font/poppins_bold</item>
     </style>
 
-    <style name="EditTextUI">
+    <style name="EditTextUI" parent="Widget.AppCompat.EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:height">50dp</item>
         <item name="android:layout_marginStart">48dp</item>
         <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginEnd">48dp</item>
+        <item name="android:background">@drawable/edit_background</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
     </style>
 
     <style name="Oval">
