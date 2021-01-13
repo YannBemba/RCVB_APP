@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/view_round_yellow"
+    android:background="@drawable/view_round"
+    android:backgroundTint="#AEE1FF"
     tools:context=".onboarding.screens.SecondScreen">
 
     <TextView
@@ -33,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="366dp"
             android:padding="20dp"
-            android:src="@drawable/social_interaction"
+            android:src="@drawable/news"
             android:contentDescription="@string/app_name"/>
 
         <TextView
@@ -51,7 +52,6 @@
             android:layout_width="50dp"
             android:layout_height="2dp"
             android:background="@color/bg_dark_blue"/>
-
 
     </LinearLayout>
 

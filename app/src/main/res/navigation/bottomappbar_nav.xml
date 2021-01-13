@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomappbar_nav"
+    app:startDestination="@id/homeFragmentNav">
+
+    <fragment
+        android:id="@+id/homeFragmentNav"
+        android:name="com.example.rcvb.onboarding.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/searchFragmentNav"
+        android:name="com.example.rcvb.onboarding.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/menuFragmentNav"
+        android:name="com.example.rcvb.onboarding.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/profilFragmentNav"
+        android:name="com.example.rcvb.onboarding.fragments.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/settingsFragmentNav"
+        android:name="com.example.rcvb.onboarding.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

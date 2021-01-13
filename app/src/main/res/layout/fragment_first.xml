@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/view_round_white"
+    android:background="@drawable/view_round"
+    android:backgroundTint="#FCB58E"
     tools:context=".onboarding.screens.FirstScreen">
 
     <TextView
@@ -33,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="366dp"
             android:layout_margin="20dp"
-            android:src="@drawable/finish_line"
+            android:src="@drawable/boy"
             android:contentDescription="@string/app_name"/>
 
         <TextView

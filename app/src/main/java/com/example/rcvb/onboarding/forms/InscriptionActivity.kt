@@ -1,7 +1,9 @@
 package com.example.rcvb.onboarding.forms
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rcvb.RCVBAppActivity
 import com.example.rcvb.databinding.ActivityInscriptionBinding
 
 class InscriptionActivity : AppCompatActivity() {
@@ -12,6 +14,13 @@ class InscriptionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInscriptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnInscription.setOnClickListener {
+            val intent = Intent(this, RCVBAppActivity::class.java)
+            startActivity(intent)
+        }
+
     }
+
 
 }

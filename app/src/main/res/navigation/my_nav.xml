@@ -6,7 +6,7 @@
     app:startDestination="@id/spashFragment">
     <fragment
         android:id="@+id/spashFragment"
-        android:name="com.example.rcvb.SplashFragment"
+        android:name="com.example.rcvb.onboarding.fragments.SplashFragment"
         android:label="fragment_spash"
         tools:layout="@layout/fragment_spash" >
         <action

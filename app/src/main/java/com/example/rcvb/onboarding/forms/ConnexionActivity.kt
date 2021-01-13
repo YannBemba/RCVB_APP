@@ -12,6 +12,12 @@ class ConnexionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityConnexionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        /*binding.button.setOnClickListener {
+            val intent = Intent(this, RCVBAppActivity::class.java)
+            startActivity(intent)
+        }*/
+
     }
 
 }

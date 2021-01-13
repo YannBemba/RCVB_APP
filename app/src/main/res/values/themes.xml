@@ -14,10 +14,11 @@
     </style>
 
     <style name="ButtonConnexion">
-        <item name="android:layout_width">150dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint">@color/bg_white</item>
-        <item name="android:textColor">@color/dark</item>
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:backgroundTint">@color/bg_dark_blue</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/bg_white</item>
         <item name="android:textAlignment">center</item>
         <item name="fontFamily">@font/poppins_bold</item>
     </style>

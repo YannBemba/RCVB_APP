@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/homeFragmentNav"
+        android:icon="@drawable/ic_house"
+        android:title="@string/home"
+        />
+
+    <item android:id="@+id/searchFragmentNav"
+        android:icon="@drawable/ic_search"
+        android:title="@string/rechercher"/>
+
+    <item android:id="@+id/menuFragmentNav"
+        android:icon="@drawable/ic_menu"
+        android:title="@string/menu"/>
+
+    <item android:id="@+id/profilFragmentNav"
+        android:icon="@drawable/ic_person"
+        android:title="@string/profil"/>
+
+    <item android:id="@+id/settingsFragmentNav"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/parametres"/>
+
+</menu>

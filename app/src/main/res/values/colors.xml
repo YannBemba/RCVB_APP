@@ -5,9 +5,12 @@
     <color name="bg_white">#ffffff</color>
     <color name="bg_dark_blue">#171C43</color>
     <color name="bg_yellow">#FFB84D</color>
+    <color name="bg_bluesky">#9BC9F3</color>
     <color name="bg_transparent_circle">#1AC4C4C4</color>
+    <color name="bg_tranparent">#00220000</color>
     <color name="bg_grey">#E4585858</color>
-    <color name="purple">#8766FF</color>
+    <color name="purple">#A187FF</color>
+    <color name="bg_beige">#FFE0BA</color>
 
     <!-- ICON -->
     <color name="ic_yellow">@color/bg_yellow</color>

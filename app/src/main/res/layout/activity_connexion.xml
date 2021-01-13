@@ -86,22 +86,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/btnGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/bg_tranparent"
             android:layout_margin="20dp"
             android:src="@drawable/google" />
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/btnFacebook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:background="@color/bg_tranparent"
             android:src="@drawable/facebook" />
 
         <ImageView
+            android:id="@+id/btnTwitter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:background="@color/bg_tranparent"
             android:src="@drawable/twitter" />
 
     </LinearLayout>

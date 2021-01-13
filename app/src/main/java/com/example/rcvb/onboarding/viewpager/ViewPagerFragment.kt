@@ -25,11 +25,11 @@ class ViewPagerFragment : Fragment() {
     ): View {
         _binding = FragmentViewPagerBinding.inflate(layoutInflater)
 
-        binding.btnInscription.setOnClickListener {
+        binding.vpInscription.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_inscriptionActivity2)
         }
 
-        binding.btnConnexion.setOnClickListener {
+        binding.vpConnexion.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_connexionActivity2)
         }
 

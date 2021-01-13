@@ -18,4 +18,19 @@
     <string name="mdp">Mot de passe</string>
     <string name="se_connecter">Se connecter</string>
     <string name="connecter_api">ou se connecter avec</string>
+    <string name="menu">Menu</string>
+    <string name="rechercher">Rechercher</string>
+    <string name="profil">Profil</string>
+    <string name="parametres">Paramètres</string>
+    <string name="club">Club</string>
+    <string name="balle_de_rugby">Balle de rugby</string>
+    <string name="boutique">Boutique</string>
+    <string name="workspace">Workspace</string>
+    <string name="shop">Shop</string>
+    <string name="space">Space</string>
+    <string name="se_deconnecter">Se deconnecter</string>
+    <string name="image_de_l_utilisateur">Image de l\'utilisateur</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
 </resources>
