@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/param_nav"
+    app:startDestination="@id/settingsFragment">
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.rcvb.onboarding.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_conditionsFragment"
+            app:destination="@id/conditionsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_politiqueFragment"
+            app:destination="@id/politiqueFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_AProposFragment"
+            app:destination="@id/AProposFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/conditionsFragment"
+        android:name="com.example.rcvb.ConditionsFragment"
+        android:label="fragment_conditions"
+        tools:layout="@layout/fragment_conditions" >
+        <action
+            android:id="@+id/action_conditionsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/politiqueFragment"
+        android:name="com.example.rcvb.PolitiqueFragment"
+        android:label="fragment_politique"
+        tools:layout="@layout/fragment_politique" >
+        <action
+            android:id="@+id/action_politiqueFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AProposFragment"
+        android:name="com.example.rcvb.AProposFragment"
+        android:label="fragment_a_propos"
+        tools:layout="@layout/fragment_a_propos" >
+        <action
+            android:id="@+id/action_AProposFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+</navigation>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_white"
-    tools:context=".onboarding.forms.InscriptionActivity">
+    tools:context=".forms.InscriptionActivity">
 
     <ImageView
         android:id="@+id/imgInscriptionBack"
@@ -35,6 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="50dp"
         android:layout_height="5dp"
         android:layout_marginTop="23dp"
@@ -43,21 +44,133 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvInscription" />
 
-    <include layout="@layout/edit_layout_inscription" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btn_inscription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        app:layout_constraintVertical_bias="0.0">
+
+        <EditText
+            android:id="@+id/etNom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="nom"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_user_circle"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/nom"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+
+        <EditText
+            android:id="@+id/etPrenom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="prenom"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_user_circle"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/prenom"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="email"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_email"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+        <EditText
+            android:id="@+id/etTel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="telephone"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_phone"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/tel"
+            android:inputType="phone"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+        <EditText
+            android:id="@+id/etMdp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="mdp"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_lock"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/mdp"
+            android:inputType="textPassword"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_inscription"
         android:layout_width="321dp"
         android:layout_height="69dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="@string/inscription"
         android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarInscription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBarInscription"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

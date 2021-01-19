@@ -4,22 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_white"
+    android:background="@color/dark"
     tools:context=".onboarding.fragments.MenuFragment">
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/club_card"
-        android:layout_width="363dp"
-        android:layout_height="193dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
         android:clickable="true"
         android:focusable="true"
+        app:cardBackgroundColor="@color/bg_white"
+        app:cardCornerRadius="0dp"
         app:cardElevation="0.8dp"
-        app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -35,20 +33,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/club"
                 android:textAllCaps="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="30dp"
                 android:textColor="@color/bg_dark_blue"
                 android:textSize="36sp" />
-
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_marginStart="40dp"
-                android:src="@drawable/rugby_ball"
-                android:contentDescription="@string/balle_de_rugby"/>
 
         </LinearLayout>
 
@@ -56,64 +47,17 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/boutique_card"
-        android:layout_width="363dp"
-        android:layout_height="193dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="88dp"
-        app:cardBackgroundColor="@color/dark"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
         android:clickable="true"
         android:focusable="true"
+        app:cardBackgroundColor="@color/bg_dark_blue"
+        app:cardCornerRadius="0dp"
         app:cardElevation="0.8dp"
-        app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/club_card">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="50dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_marginEnd="30dp"
-                android:src="@drawable/mastercard" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/shop"
-                android:textAllCaps="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="40dp"
-                android:textColor="@color/bg_white"
-                android:textSize="36sp" />
-
-
-        </LinearLayout>
-
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/workspace_card"
-        android:layout_width="363dp"
-        android:layout_height="193dp"
-        android:layout_margin="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardElevation="0.8dp"
-        app:cardBackgroundColor="@color/bg_bluesky"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boutique_card">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,20 +71,52 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/boutique"
+                android:textAllCaps="true"
+                android:textColor="@color/bg_white"
+                android:textSize="36sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/space_card"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/dark"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0.8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boutique_card"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="@color/bg_white"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/space"
                 android:textAllCaps="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="30dp"
-                android:textColor="@color/bg_dark_blue"
-                android:textSize="32sp" />
-
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_marginStart="40dp"
-                android:src="@drawable/workspace"
-                android:contentDescription="@string/balle_de_rugby"/>
+                android:textColor="@color/bg_white"
+                android:textSize="36sp" />
 
         </LinearLayout>
 

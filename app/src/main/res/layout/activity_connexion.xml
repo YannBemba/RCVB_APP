@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark_blue"
-    tools:context=".onboarding.forms.ConnexionActivity">
+    tools:context=".forms.ConnexionActivity">
 
     <ImageView
         android:id="@+id/imgConnexionBack"
@@ -34,6 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view3"
         android:layout_width="50dp"
         android:layout_height="5dp"
         android:layout_marginTop="23dp"
@@ -44,20 +45,23 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/edit_connexion_layout" />
+        layout="@layout/edit_connexion_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="321dp"
         android:layout_height="69dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@color/bg_white"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/connexion"
         android:textColor="@color/bg_dark_blue"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
@@ -76,6 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <LinearLayout
+        android:id="@+id/linear_api"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -111,5 +116,17 @@
             android:src="@drawable/twitter" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/bg_white"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/linear_api"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

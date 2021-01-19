@@ -104,22 +104,4 @@
         android:paddingEnd="20dp"
         android:textColor="@color/dark" />
 
-    <EditText
-        android:id="@+id/etMdpConfim"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="48dp"
-        android:autofillHints="confirm_mdp"
-        android:background="@drawable/edit_background"
-        android:drawableEnd="@drawable/ic_lock"
-        android:drawableTint="@color/bg_dark_blue"
-        android:fontFamily="@font/poppins_semibold"
-        android:hint="@string/confirmation"
-        android:inputType="textPassword"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:textColor="@color/dark" />
-
 </LinearLayout>

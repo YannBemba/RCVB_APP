@@ -15,10 +15,10 @@
         <activity android:name=".RCVBAppActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".onboarding.forms.ConnexionActivity"
+            android:name="com.example.rcvb.forms.ConnexionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".onboarding.forms.InscriptionActivity"
+            android:name="com.example.rcvb.forms.InscriptionActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

@@ -7,16 +7,15 @@
     android:background="@color/bg_dark_blue"
     tools:context=".onboarding.fragments.ProfilFragment">
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="92dp"
         android:layout_height="92dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/image_de_l_utilisateur"
         android:src="@drawable/user_male"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,39 +23,178 @@
         android:id="@+id/tvNomModif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:hint="Bemba Yann"
         android:textColorHint="@color/bg_white"
         android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="yann@gmail.com"
-        android:textSize="15sp"
-        android:textColor="@color/bg_white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomModif" />
+        app:layout_constraintHorizontal_bias="0.632"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.169" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
+        android:layout_height="560dp"
         android:background="@drawable/view_top_round"
         app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/modifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/modifier"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/bg_dark_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="9dp"
+        android:background="@color/bg_dark_blue"
+        app:layout_constraintBottom_toTopOf="@id/linear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/modifier"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/modifier"
+        app:layout_constraintVertical_bias="0.089">
+
+
+        <EditText
+            android:id="@+id/etNom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="nom"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_user_circle"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/nom"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+
+        <EditText
+            android:id="@+id/etPrenom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="prenom"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_user_circle"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/prenom"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="email"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_email"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+        <EditText
+            android:id="@+id/etTel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="telephone"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_phone"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/tel"
+            android:inputType="phone"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+        <EditText
+            android:id="@+id/etMdp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="mdp"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_lock"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/mdp"
+            android:inputType="textPassword"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+        <EditText
+            android:id="@+id/etMdpConfim"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:autofillHints="confirm_mdp"
+            android:background="@drawable/edit_background"
+            android:drawableEnd="@drawable/ic_lock"
+            android:drawableTint="@color/bg_dark_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="@string/confirmation"
+            android:inputType="textPassword"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/dark" />
+
+
+    </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"

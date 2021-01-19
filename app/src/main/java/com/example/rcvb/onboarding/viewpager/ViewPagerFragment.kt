@@ -1,6 +1,5 @@
 package com.example.rcvb.onboarding.viewpager
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.rcvb.R
 import com.example.rcvb.databinding.FragmentViewPagerBinding
-import com.example.rcvb.onboarding.forms.InscriptionActivity
 import com.example.rcvb.onboarding.screens.FirstScreen
 import com.example.rcvb.onboarding.screens.SecondScreen
 import com.example.rcvb.onboarding.screens.ThirdScreen

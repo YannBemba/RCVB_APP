@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "224355468063",
+    "project_id": "rcvb-41297",
+    "storage_bucket": "rcvb-41297.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224355468063:android:9e1575e5738da59785262a",
+        "android_client_info": {
+          "package_name": "com.example.rcvb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224355468063-fa7vj5hs74j8af0abemvffhle1431iol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeLUmKa55mmg7NVBzuThR300GMGaN0Yvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224355468063-fa7vj5hs74j8af0abemvffhle1431iol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

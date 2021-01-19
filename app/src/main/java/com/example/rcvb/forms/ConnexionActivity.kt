@@ -1,4 +1,4 @@
-package com.example.rcvb.onboarding.forms
+package com.example.rcvb.forms
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,11 +12,6 @@ class ConnexionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityConnexionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        /*binding.button.setOnClickListener {
-            val intent = Intent(this, RCVBAppActivity::class.java)
-            startActivity(intent)
-        }*/
 
     }
 
