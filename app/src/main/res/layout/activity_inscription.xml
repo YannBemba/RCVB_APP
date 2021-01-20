@@ -135,15 +135,16 @@
 
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_inscription"
-        android:layout_width="321dp"
+        android:layout_width="220dp"
         android:layout_height="69dp"
+        app:cornerRadius="30dp"
         android:layout_marginBottom="100dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="@string/inscription"
-        android:textSize="26sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

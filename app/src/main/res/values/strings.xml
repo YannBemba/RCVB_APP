@@ -40,4 +40,13 @@
     <string name="reinitialisier_mdp">Réinitialisier </string>
     <string name="enregistrer">Enregistrer</string>
     <string name="deconnexion">Déconnexion</string>
+
+    <!-- FACEBOOK -->
+
+    <string name="facebook_app_id">715720005773967</string>
+    <string name="fb_login_protocol_scheme">fb715720005773967</string>
+    <string name="facebook_connexion">Se connecter avec Facebook</string>
+    <string name="google_connexion">Se connecter avec Google</string>
+
+
 </resources>

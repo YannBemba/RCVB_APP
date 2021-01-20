@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.rcvb.R
 import com.example.rcvb.databinding.FragmentProfilBinding
 import com.example.rcvb.entites.Utilisateur
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -29,31 +32,14 @@ class ProfilFragment : Fragment() {
         val btnDeconnecter = binding.btnDeconnexion
 
         btnDeconnecter.setOnClickListener {
+
+            // Alert Dialog
+
             FirebaseAuth.getInstance().signOut()
             findNavController().navigate(R.id.action_profilFragmentNav_to_mainActivity)
         }
 
         return binding.root
-    }
-
-    private fun getNom(): EditText{
-        return binding.etNomProfil
-    }
-
-    private fun getPrenom(): EditText {
-        return binding.etPrenomProfil
-    }
-
-    private fun getEmail(): EditText{
-        return binding.etEmailProfil
-    }
-
-    private fun getTel(): EditText {
-        return binding.etTelProfil
-    }
-
-    private fun getMdp(): EditText {
-        return binding.etMdpProfil
     }
 
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark_blue"
+    android:background="@color/dark"
     tools:context=".forms.ConnexionActivity">
 
 
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_vertical"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/btn_connexion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,7 +47,7 @@
 
         <EditText
             android:id="@+id/etEmailConnexion"
-            android:layout_width="336dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="30dp"
@@ -66,7 +66,7 @@
 
         <EditText
             android:id="@+id/etMdpConnexion"
-            android:layout_width="336dp"
+            android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="31dp"
@@ -85,17 +85,19 @@
 
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_connexion"
-        android:layout_width="321dp"
+        android:layout_width="200dp"
         android:layout_height="69dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/bg_white"
+        app:cornerRadius="30dp"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/connexion"
-        android:textColor="@color/bg_dark_blue"
-        android:textSize="26sp"
+        android:textColor="@color/dark"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_connect" />
 
@@ -103,87 +105,77 @@
         android:id="@+id/tvMdpOublie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/mdp_oublie"
         android:textColor="@color/bg_white"
-        app:layout_constraintBottom_toTopOf="@+id/ou_se_connecter"
+        app:layout_constraintBottom_toTopOf="@+id/linear_api"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_connexion"
-        app:layout_constraintVertical_bias="0.506" />
+        app:layout_constraintVertical_bias="0.771" />
 
     <TextView
         android:id="@id/tvInscription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:text="@string/inscription"
-        android:textColor="@color/bg_white"
+        android:layout_marginEnd="36dp"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintBottom_toTopOf="@+id/ou_se_connecter"
+        android:text="@string/inscription"
+        android:textColor="@color/bg_white"
+        app:layout_constraintBottom_toTopOf="@+id/linear_api"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_connexion"
-        app:layout_constraintVertical_bias="0.504" />
-
-    <TextView
-        android:id="@+id/ou_se_connecter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/connecter_api"
-        android:textColor="@color/bg_white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_connexion" />
+        app:layout_constraintVertical_bias="0.771" />
 
     <LinearLayout
         android:id="@+id/linear_api"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:layout_margin="25dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ou_se_connecter"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGoogle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@color/bg_tranparent"
-            android:contentDescription="@string/connexion"
-            android:src="@drawable/google" />
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/bg_white"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/google_connexion"
+            android:textAllCaps="false"
+            android:textColor="@color/dark"
+            android:textSize="15sp"
+            app:icon="@drawable/google"
+            app:iconGravity="start"
+            app:iconSize="25dp"
+            app:iconTint="@color/dark" />
 
-        <ImageButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFacebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@color/bg_tranparent"
-            android:contentDescription="@string/connexion"
-            android:src="@drawable/facebook" />
-
-        <ImageView
-            android:id="@+id/btnTwitter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@color/bg_tranparent"
-            android:contentDescription="@string/connexion"
-            android:src="@drawable/twitter" />
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/custom_fb_button"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/facebook_connexion"
+            android:textAllCaps="false"
+            android:textColor="@color/bg_white"
+            android:textSize="15sp"
+            app:icon="@drawable/ic_facebook"
+            app:iconGravity="start"
+            app:iconSize="25sp" />
 
     </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

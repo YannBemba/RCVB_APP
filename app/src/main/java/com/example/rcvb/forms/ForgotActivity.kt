@@ -45,7 +45,6 @@ class ForgotActivity : AppCompatActivity() {
             return
         }
 
-        this.getProgressBar().visibility = View.VISIBLE
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
             if(task.isSuccessful){
                 Toast.makeText(this,
@@ -68,10 +67,6 @@ class ForgotActivity : AppCompatActivity() {
 
     private fun mdpOublieModif(): Button {
         return binding.btnMdpOublie
-    }
-
-    private fun getProgressBar(): ProgressBar {
-        return binding.progressBar2
     }
 
 }

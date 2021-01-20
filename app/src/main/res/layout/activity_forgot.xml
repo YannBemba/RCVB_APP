@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.155" />
 
     <View
-        android:layout_width="20dp"
+        android:layout_width="30dp"
         android:layout_height="5dp"
         android:layout_marginTop="28dp"
         android:background="@color/bg_white"
@@ -37,7 +37,7 @@
         android:id="@+id/etEmail"
         android:layout_width="336dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="150dp"
         android:autofillHints="mdp"
         android:background="@drawable/edit_background_dark"
         android:drawableEnd="@drawable/ic_email"
@@ -54,29 +54,19 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_mdpOublie"
-        android:layout_width="321dp"
+        android:layout_width="230dp"
         android:layout_height="69dp"
-        android:layout_marginBottom="188dp"
+        android:layout_marginBottom="168dp"
+        app:cornerRadius="30dp"
         android:backgroundTint="@color/bg_white"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/reinitialisier_mdp"
         android:textColor="@color/dark"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 

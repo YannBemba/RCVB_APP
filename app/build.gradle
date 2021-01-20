@@ -61,7 +61,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
 
-    // Ajouut du SDK Google
+    // Ajout du SDK Google
 
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
@@ -72,6 +72,11 @@ dependencies {
 
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    // Facebook components
+
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+
 
     // ViewPager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
