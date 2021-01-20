@@ -24,10 +24,19 @@
         android:id="@+id/profilFragmentNav"
         android:name="com.example.rcvb.onboarding.fragments.ProfilFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil" />
+        tools:layout="@layout/fragment_profil" >
+        <action
+            android:id="@+id/action_profilFragmentNav_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragmentNav"
         android:name="com.example.rcvb.onboarding.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.rcvb.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

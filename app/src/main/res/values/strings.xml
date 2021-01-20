@@ -12,7 +12,7 @@
     <string name="s_inscrire">S\'inscrire</string>
     <string name="nom">Nom</string>
     <string name="email">Email</string>
-    <string name="prenom">Prenom</string>
+    <string name="prenom">Prénom</string>
     <string name="tel">Téléphone</string>
     <string name="confirmation">Confirmation</string>
     <string name="mdp">Mot de passe</string>
@@ -35,6 +35,9 @@
     <string name="condition">Conditions générales d\'utilisation</string>
     <string name="a_propos">à propos de cette version</string>
     <string name="confidentialite">Politique de confidentialité</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">hello</string>
+    <string name="mdp_oublie">Mot de passe oublié</string>
+    <string name="reinitialisier_mdp">Réinitialisier </string>
+    <string name="enregistrer">Enregistrer</string>
+    <string name="deconnexion">Déconnexion</string>
 </resources>

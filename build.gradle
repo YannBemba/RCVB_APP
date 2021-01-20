@@ -24,6 +24,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        //MotionLayout
+        maven { url 'https://jitpack.io' }
     }
 }
 

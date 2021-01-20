@@ -1,12 +1,19 @@
 package com.example.rcvb.forms
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.EditText
-import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
+import com.example.rcvb.R
 import com.example.rcvb.databinding.ActivityInscriptionBinding
+import com.example.rcvb.entites.Utilisateur
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import www.sanju.motiontoast.MotionToast
 
 class InscriptionActivity : AppCompatActivity() {
 
@@ -18,6 +25,7 @@ class InscriptionActivity : AppCompatActivity() {
     private lateinit var etEmailUtils: EditText
     private lateinit var etTelUtils: EditText
     private lateinit var etMdpUtils: EditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +40,9 @@ class InscriptionActivity : AppCompatActivity() {
         etTelUtils = binding.etTel
         etMdpUtils = binding.etMdp
 
-        binding.btnInscription.setOnClickListener {
+        val btnInscription = binding.btnInscription
+
+        btnInscription.setOnClickListener {
             enregistrerUtils()
         }
 
@@ -44,8 +54,6 @@ class InscriptionActivity : AppCompatActivity() {
         val email = binding.etEmail.text.toString().trim()
         val tel = binding.etTel.text.toString().trim()
         val mdp = binding.etMdp.text.toString().trim()
-
-        val progressBar = binding.progressBarInscription
 
         if(nom.isEmpty()){
             etNomUtils.error = "Le nom est requis"
@@ -86,12 +94,58 @@ class InscriptionActivity : AppCompatActivity() {
         }
 
         if(mdp.length < 6) {
-            etMdpUtils.error = "Votre mot de passe doit pas dépasser 6 caractères"
+            etMdpUtils.error = "Le mot de passe doit contenir plus de 6 caractères"
             etMdpUtils.requestFocus()
             return
         }
 
-        Toast.makeText(applicationContext, "Bienvenue $prenom", Toast.LENGTH_LONG).show()
+        firebaseCreateUser(email, mdp, nom, prenom, tel)
+
+    }
+
+    private fun firebaseCreateUser(email: String, mdp: String, nom: String, prenom: String, tel: String) {
+
+        mAuth.createUserWithEmailAndPassword(email, mdp)
+                .addOnCompleteListener(OnCompleteListener { tache ->
+                    if(tache.isSuccessful){
+                        val utils = Utilisateur(nom, prenom, email, tel, mdp)
+
+                        FirebaseDatabase.getInstance().getReference("Utilisateur")
+                            .child(FirebaseAuth.getInstance().currentUser!!.uid)
+                            .setValue(utils)
+                            .addOnCompleteListener(OnCompleteListener { tache2 ->
+                                if(tache2.isSuccessful) {
+                                    MotionToast.Companion.darkColorToast(
+                                        this,
+                                        "Inscription réussie",
+                                        "Votre compte a bien été crée $prenom",
+                                        MotionToast.TOAST_SUCCESS,
+                                        MotionToast.GRAVITY_BOTTOM,
+                                        MotionToast.LONG_DURATION,
+                                        ResourcesCompat.getFont(this, R.font.poppins_bold)
+                                    )
+                                    startActivity(Intent(this@InscriptionActivity, ConnexionActivity::class.java))
+
+                                    // Redirectionner à la page Connexion
+                                } else {
+
+                                    /*val snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG)
+                                    snackbar.show()*/
+
+                                }
+                            })
+                    } else {
+                        MotionToast.Companion.darkColorToast(
+                            this,
+                            "Erreur de connexion",
+                            "",
+                            MotionToast.TOAST_SUCCESS,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this, R.font.poppins_bold)
+                        )
+                    }
+                })
     }
 
 
