@@ -47,6 +47,8 @@
     <string name="fb_login_protocol_scheme">fb715720005773967</string>
     <string name="facebook_connexion">Se connecter avec Facebook</string>
     <string name="google_connexion">Se connecter avec Google</string>
+    <string name="verifier_email">Vérifier votre messagerie</string>
+    <string name="content_email">Image d\'email</string>
 
 
 </resources>

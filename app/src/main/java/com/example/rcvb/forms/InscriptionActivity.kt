@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import com.example.rcvb.R
 import com.example.rcvb.databinding.ActivityInscriptionBinding
@@ -131,6 +132,7 @@ class InscriptionActivity : AppCompatActivity() {
 
                                     /*val snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG)
                                     snackbar.show()*/
+                                    Toast.makeText(this, "Vous êtes déjà inscrits", Toast.LENGTH_LONG).show()
 
                                 }
                             })

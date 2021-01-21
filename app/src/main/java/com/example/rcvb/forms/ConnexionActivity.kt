@@ -10,11 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.view.ViewGroup
+import android.widget.*
 import com.example.rcvb.R
 import com.example.rcvb.RCVBAppActivity
 import com.example.rcvb.databinding.ActivityConnexionBinding
@@ -117,33 +116,40 @@ class ConnexionActivity : AppCompatActivity() {
 
     private fun connecterUtils(email: String, mdp: String) {
         mAuth.signInWithEmailAndPassword(email, mdp)
-            .addOnCompleteListener { tache ->
-                if (tache.isSuccessful) {
-                    val utils = FirebaseAuth.getInstance().currentUser
-                    if(utils!!.isEmailVerified) {
-                        //Redirectionner vers la page d'accueil
-                        startActivity(Intent(this@ConnexionActivity, RCVBAppActivity::class.java))
-                        finish()
+                .addOnCompleteListener { tache ->
+                    if (tache.isSuccessful) {
+                        val utils = FirebaseAuth.getInstance().currentUser
+                        if(utils!!.isEmailVerified) {
+                            //Redirectionner vers la page d'accueil
+                            startActivity(Intent(this@ConnexionActivity, RCVBAppActivity::class.java))
+                            finish()
+                        } else {
+                            utils.sendEmailVerification()
+                            val inflater = layoutInflater
+                            val toast_layout = R.id.toast_layout as ViewGroup
+                            val layout = inflater.inflate(R.layout.custom_toast, toast_layout)
+
+                            /*val imageView = layout.findViewById<ImageView>(R.id.image_email_alert)
+                            imageView.setImageResource(R.drawable.ic_launcher_background)
+
+                            val textView = layout.findViewById<TextView>(R.id.tv_email_alert)
+                            textView.text = getString(R.string.verifier_email)
+                            */
+
+                            val toast = Toast(applicationContext)
+                            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+                            toast.duration = Toast.LENGTH_LONG
+                            toast.view = layout
+                            toast.show()
+                        }
                     } else {
-                        utils.sendEmailVerification()
                         Toast.makeText(
-                            this@ConnexionActivity,
-                            "Vérifier votre email pour confirmer votre compte",
+                            this,
+                            "Erreur de connexion ! Vérifier vos champs",
                             Toast.LENGTH_LONG
-                        )
-                            .show()
+                        ).show()
                     }
-                } else {
-                    /*val snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG)
-                    snackbar.show()*/
-                    Toast.makeText(
-                        this,
-                        "Erreur de connexion ! Vérifier vos champs",
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
                 }
-            }
     }
 
     private fun googleSignIn() {
