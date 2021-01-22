@@ -88,8 +88,7 @@ class InscriptionActivity : AppCompatActivity() {
             return
         }
 
-        if(mdp.isEmpty())
-        {
+        if(mdp.isEmpty()){
             etMdpUtils.error = "Le mdp est requis"
             etMdpUtils.requestFocus()
         }
@@ -125,15 +124,13 @@ class InscriptionActivity : AppCompatActivity() {
                                         MotionToast.LONG_DURATION,
                                         ResourcesCompat.getFont(this, R.font.poppins_bold)
                                     )
-                                    startActivity(Intent(this@InscriptionActivity, ConnexionActivity::class.java))
-
                                     // Redirectionner à la page Connexion
+
+                                    val intent = Intent(this, ConnexionActivity::class.java)
+                                    startActivity(intent)
+
                                 } else {
-
-                                    /*val snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG)
-                                    snackbar.show()*/
-                                    Toast.makeText(this, "Vous êtes déjà inscrits", Toast.LENGTH_LONG).show()
-
+                                    Toast.makeText(this, "Vous êtes déjà inscrit", Toast.LENGTH_LONG).show()
                                 }
                             })
                     } else {

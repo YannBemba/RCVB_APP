@@ -1,33 +1,22 @@
 package com.example.rcvb.forms
 
-// Facebook imports
-
-import com.facebook.appevents.AppEventsLogger;
-
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.Gravity
-import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.rcvb.R
 import com.example.rcvb.RCVBAppActivity
 import com.example.rcvb.databinding.ActivityConnexionBinding
-import com.facebook.*
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import java.util.*
 
@@ -42,9 +31,6 @@ class ConnexionActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    private lateinit var callbackManager: CallbackManager
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityConnexionBinding.inflate(layoutInflater)
@@ -54,15 +40,18 @@ class ConnexionActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        this.googleSignIn()
-        this.facebookAuth()
-
         val btnConnexion = binding.btnConnexion
+        val btnGoogle = binding.btnGoogle
+
         val tvInscription = binding.tvInscription
         val mdpOublie = binding.tvMdpOublie
 
         btnConnexion.setOnClickListener {
             userLogin()
+        }
+
+        btnGoogle.setOnClickListener {
+            this.googleAuth()
         }
 
         tvInscription.setOnClickListener {
@@ -125,40 +114,29 @@ class ConnexionActivity : AppCompatActivity() {
                             finish()
                         } else {
                             utils.sendEmailVerification()
-                            val inflater = layoutInflater
-                            val toast_layout = R.id.toast_layout as ViewGroup
-                            val layout = inflater.inflate(R.layout.custom_toast, toast_layout)
 
-                            /*val imageView = layout.findViewById<ImageView>(R.id.image_email_alert)
-                            imageView.setImageResource(R.drawable.ic_launcher_background)
-
-                            val textView = layout.findViewById<TextView>(R.id.tv_email_alert)
-                            textView.text = getString(R.string.verifier_email)
-                            */
-
-                            val toast = Toast(applicationContext)
-                            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-                            toast.duration = Toast.LENGTH_LONG
-                            toast.view = layout
-                            toast.show()
                         }
                     } else {
                         Toast.makeText(
-                            this,
-                            "Erreur de connexion ! Vérifier vos champs",
-                            Toast.LENGTH_LONG
+                                this,
+                                "Erreur de connexion ! Vérifier vos champs",
+                                Toast.LENGTH_LONG
                         ).show()
                     }
                 }
     }
 
-    private fun googleSignIn() {
+    private fun getTagActivity(): String? {
+        return ConnexionActivity::class.simpleName
+    }
+
+    private fun googleAuth() {
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
@@ -176,18 +154,16 @@ class ConnexionActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
-        val TAG = ConnexionActivity::class.simpleName
-
         super.onActivityResult(requestCode, resultCode, data)
+
+        val TAG = this.getTagActivity()
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            //Créer une exception
             val exception = task.exception
 
-            if(task.isSuccessful){
+            if(task.isSuccessful) {
                 try {
                     // Google Sign In was successful, authenticate with Firebase
                     val account = task.getResult(ApiException::class.java)!!
@@ -200,115 +176,31 @@ class ConnexionActivity : AppCompatActivity() {
             } else {
                 Log.w(TAG, exception.toString())
             }
+
         }
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
+
+        val TAG = this.getTagActivity()
+
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        val TAG = ConnexionActivity::class.simpleName
-
         mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val intent = Intent(this, RCVBAppActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithCredential:success")
+                        //val user = mAuth.currentUser
+
+                        val intent = Intent(this, RCVBAppActivity::class.java)
+                        startActivity(intent)
+                        finish()
+
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    }
                 }
-            }
     }
-
-    private fun facebookAuth() {
-
-        // Initialisation du SDK Facebook
-
-        FacebookSdk.sdkInitialize(this)
-
-        val TAG = ConnexionActivity::class.simpleName
-
-        callbackManager = CallbackManager.Factory.create()
-
-        val customFbButton = binding.btnFacebook
-
-        customFbButton.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this,
-                listOf("email", "public_profile")
-            )
-            LoginManager.getInstance().registerCallback(callbackManager, object :
-                FacebookCallback<LoginResult> {
-                override fun onSuccess(loginResult: LoginResult) {
-                    Log.d(TAG, "facebook:onSuccess:$loginResult")
-                    handleFacebookAccessToken(loginResult.accessToken)
-                }
-
-                override fun onCancel() {
-                }
-
-                override fun onError(error: FacebookException) {
-                }
-
-            })
-
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        //Si l'utilisateur est connecter à Facebook, directionner à la HomePage
-
-        val currentUser = mAuth.currentUser
-
-        if(currentUser != null) {
-            updateUI(currentUser)
-        }
-    }
-
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        // Pass the activity result back to the Facebook SDK
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-    }*/
-
-    private fun handleFacebookAccessToken(token: AccessToken) {
-
-        val TAG = ConnexionActivity::class.simpleName
-        Log.d(TAG, "handleFacebookAccessToken:$token")
-
-        val credential = FacebookAuthProvider.getCredential(token.token)
-        mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = mAuth.currentUser
-                    updateUI(user)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(
-                        this, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    updateUI(null)
-                }
-            }
-    }
-
-    private fun updateUI(user: FirebaseUser?) {
-        if(user != null) {
-            val intent = Intent(this@ConnexionActivity, RCVBAppActivity::class.java)
-            startActivity(intent)
-        } else {
-            Toast.makeText(this, "Inscris toi pour continuer", Toast.LENGTH_SHORT)
-                .show()
-        }
-    }
-
 
 }

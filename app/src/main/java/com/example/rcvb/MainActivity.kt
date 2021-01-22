@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             if(utils != null){
-                val homeIntent = Intent(this@MainActivity, RCVBAppActivity::class.java)
+                val homeIntent = Intent(this, RCVBAppActivity::class.java)
                 startActivity(homeIntent)
                 finish()
             }

@@ -59,23 +59,11 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-auth-ktx'
-
-    // Ajout du SDK Google
-
-    // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
-
-    // Declare the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth-ktx'
 
-    // Also declare the dependency for the Google Play services library and specify its version
+    // Firebase Google Sign In
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
-
-    // Facebook components
-
-    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
 
 
     // ViewPager2
@@ -83,12 +71,16 @@ dependencies {
 
     // Lifecycles
     def lifecycle_version = "2.2.0"
+    def arch_version = "2.1.0"
 
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+
 
     // Room
     def room_version = "2.2.6"
@@ -99,7 +91,6 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
 
     // Kotlin coroutines
-
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
 
@@ -113,7 +104,10 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // Motion Toast
-
     implementation 'com.github.Spikeysanju:MotionToast:1.3.3.4'
+
+    // Google button
+    implementation 'com.shobhitpuri.custombuttons:google-signin:1.1.0'
+
 
 }

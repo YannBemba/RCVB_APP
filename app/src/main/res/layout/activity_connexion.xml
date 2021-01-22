@@ -7,7 +7,6 @@
     android:background="@color/dark"
     tools:context=".forms.ConnexionActivity">
 
-
     <TextView
         android:id="@+id/tvTitreConnexion"
         android:layout_width="wrap_content"
@@ -28,7 +27,7 @@
         android:layout_marginTop="12dp"
         android:background="@color/bg_white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitreConnexion" />
 
@@ -113,7 +112,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linear_api"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_connexion"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintVertical_bias="0.381" />
 
     <TextView
         android:id="@id/tvInscription"
@@ -127,7 +126,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linear_api"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_connexion"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintVertical_bias="0.381" />
 
     <LinearLayout
         android:id="@+id/linear_api"
@@ -140,23 +139,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.button.MaterialButton
+        <com.shobhitpuri.custombuttons.GoogleSignInButton
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/bg_white"
-            android:fontFamily="@font/poppins_bold"
+            android:layout_height="64dp"
             android:text="@string/google_connexion"
-            android:textAllCaps="false"
+            android:textSize="18sp"
             android:textColor="@color/dark"
-            android:textSize="15sp"
-            app:icon="@drawable/google"
-            app:iconGravity="start"
-            app:iconSize="25dp"
-            app:iconTint="@color/dark" />
+            android:fontFamily="@font/poppins_bold"
+            app:isDarkTheme="false" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFacebook"
