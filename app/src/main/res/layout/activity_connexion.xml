@@ -35,8 +35,8 @@
         android:id="@id/linear_connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/btn_connexion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,39 +47,39 @@
         <EditText
             android:id="@+id/etEmailConnexion"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="48dp"
             android:autofillHints="email"
             android:background="@drawable/edit_background_dark"
-            android:drawableEnd="@drawable/ic_email"
-            android:drawableTint="@color/bg_white"
+            android:drawableEnd="@drawable/custom_emaildark_icon"
             android:fontFamily="@font/poppins_semibold"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
             android:textColor="#FFFFFF"
+            android:textSize="14sp"
             android:textColorHint="@color/bg_white" />
 
         <EditText
             android:id="@+id/etMdpConnexion"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="60dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="31dp"
             android:layout_marginEnd="48dp"
             android:autofillHints="mdp"
             android:background="@drawable/edit_background_dark"
-            android:drawableEnd="@drawable/ic_lock"
-            android:drawableTint="@color/bg_white"
+            android:drawableEnd="@drawable/custom_lockdark_icon"
             android:fontFamily="@font/poppins_semibold"
             android:hint="@string/mdp"
             android:inputType="textPassword"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
             android:textColor="@color/bg_white"
+            android:textSize="14sp"
             android:textColorHint="@color/bg_white" />
 
     </LinearLayout>
@@ -90,11 +90,11 @@
         android:layout_height="69dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/bg_white"
-        app:cornerRadius="30dp"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/connexion"
         android:textColor="@color/dark"
         android:textSize="20sp"
+        app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,40 +133,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_connexion"
+        app:layout_constraintVertical_bias="0.755">
 
         <com.shobhitpuri.custombuttons.GoogleSignInButton
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="@string/google_connexion"
-            android:textSize="18sp"
-            android:textColor="@color/dark"
+            android:layout_height="65dp"
             android:fontFamily="@font/poppins_bold"
+            android:text="@string/google_connexion"
+            android:textColor="@color/dark"
+            android:textSize="20sp"
             app:isDarkTheme="false" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnFacebook"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/custom_fb_button"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/facebook_connexion"
-            android:textAllCaps="false"
-            android:textColor="@color/bg_white"
-            android:textSize="15sp"
-            app:icon="@drawable/ic_facebook"
-            app:iconGravity="start"
-            app:iconSize="25sp" />
-
     </LinearLayout>
+
+    <View
+        android:id="@+id/successBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_white"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/successLottie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/check" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

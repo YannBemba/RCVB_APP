@@ -6,7 +6,7 @@
     app:startDestination="@id/spashFragment">
     <fragment
         android:id="@+id/spashFragment"
-        android:name="com.example.rcvb.onboarding.fragments.SplashFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.SplashFragment"
         android:label="fragment_spash"
         tools:layout="@layout/fragment_spash" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.rcvb.onboarding.viewpager.ViewPagerFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.viewpager.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -30,12 +30,12 @@
     </fragment>
     <activity
         android:id="@+id/inscriptionActivity2"
-        android:name="com.example.rcvb.forms.InscriptionActivity"
+        android:name="com.rcvb.rcvbapp.forms.InscriptionActivity"
         android:label="activity_inscription"
         tools:layout="@layout/activity_inscription" />
     <activity
         android:id="@+id/connexionActivity2"
-        android:name="com.example.rcvb.forms.ConnexionActivity"
+        android:name="com.rcvb.rcvbapp.forms.ConnexionActivity"
         android:label="activity_connexion"
         tools:layout="@layout/activity_connexion" />
 </navigation>

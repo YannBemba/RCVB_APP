@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rcvb">
+    package="com.rcvb.rcvbapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,8 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RCVB">
-        <activity android:name=".forms.ForgotActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".SuccessActivity"></activity>
+        <activity
+            android:name=".forms.ForgotActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RCVBAppActivity"
             android:screenOrientation="portrait" />
@@ -32,7 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

@@ -7,22 +7,29 @@
 
     <fragment
         android:id="@+id/homeFragmentNav"
-        android:name="com.example.rcvb.onboarding.fragments.HomeFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/searchFragmentNav"
-        android:name="com.example.rcvb.onboarding.fragments.SearchFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/menuFragmentNav"
-        android:name="com.example.rcvb.onboarding.fragments.MenuFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragmentNav_to_clubFragment"
+            app:destination="@id/clubFragment" />
+        <action
+            android:id="@+id/action_menuFragmentNav_to_boutiqueFragment"
+            app:destination="@id/boutiqueFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profilFragmentNav"
-        android:name="com.example.rcvb.onboarding.fragments.ProfilFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.ProfilFragment"
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" >
         <action
@@ -31,12 +38,22 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragmentNav"
-        android:name="com.example.rcvb.onboarding.fragments.SettingsFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.rcvb.MainActivity"
+        android:name="com.rcvb.rcvbapp.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/clubFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.ClubFragment"
+        android:label="fragment_club"
+        tools:layout="@layout/fragment_club" />
+    <fragment
+        android:id="@+id/boutiqueFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.BoutiqueFragment"
+        android:label="fragment_boutique"
+        tools:layout="@layout/fragment_boutique" />
 </navigation>
