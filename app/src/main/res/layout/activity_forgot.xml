@@ -16,7 +16,7 @@
         android:text="@string/mdp_oublie"
         android:textColor="@color/bg_white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/etEmail"
+        app:layout_constraintBottom_toTopOf="@+id/tilEmailOublie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +24,7 @@
         app:layout_constraintVertical_bias="0.155" />
 
     <View
+        android:id="@+id/view4"
         android:layout_width="30dp"
         android:layout_height="5dp"
         android:layout_marginTop="28dp"
@@ -33,25 +34,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="336dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="184dp"
-        android:autofillHints="mdp"
-        android:background="@drawable/edit_background_dark"
-        android:drawableEnd="@drawable/custom_emaildark_icon"
-        android:fontFamily="@font/poppins_semibold"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:textColor="@color/bg_white"
-        android:textColorHint="@color/bg_white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_mdpOublie"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmailOublie"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_marginTop="84dp"
+        android:hint="@string/prenom"
+        android:textColorHint="@color/bg_lightgrey"
+        app:boxStrokeColor="@color/bg_white"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextColor="@color/bg_lightgrey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:startIconDrawable="@drawable/ic_email"
+        app:startIconTint="@color/bg_white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/bg_white"
+            android:textColorHint="@color/bg_dark_blue" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_mdpOublie"

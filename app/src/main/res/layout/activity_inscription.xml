@@ -42,101 +42,122 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view"
-        app:layout_constraintVertical_bias="0.348">
+        app:layout_constraintVertical_bias="0.0">
 
-        <EditText
-            android:id="@+id/etNom"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNom"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginEnd="48dp"
-            android:autofillHints="nom"
-            android:background="@drawable/edit_background"
-            android:drawableEnd="@drawable/custom_usercircle_icon"
-            android:drawablePadding="12dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginTop="50dp"
             android:hint="@string/nom"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/dark"
-            android:textSize="14sp"/>
+            android:textColorHint="@color/bg_lightgrey"
+            app:boxStrokeColor="@color/bg_dark_blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintTextColor="@color/bg_dark_blue"
+            app:startIconDrawable="@drawable/ic_account_box"
+            app:startIconTint="@color/bg_lightgrey">
 
-        <EditText
-            android:id="@+id/etPrenom"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColorHint="@color/bg_dark_blue" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPrenom"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="48dp"
-            android:autofillHints="prenom"
-            android:background="@drawable/edit_background"
-            android:drawableEnd="@drawable/custom_usercircle_icon"
-            android:drawablePadding="12dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginTop="50dp"
             android:hint="@string/prenom"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/dark"
-            android:textSize="14sp"/>
+            android:textColorHint="@color/bg_lightgrey"
+            app:boxStrokeColor="@color/bg_dark_blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintTextColor="@color/bg_dark_blue"
+            app:startIconDrawable="@drawable/ic_account_box"
+            app:startIconTint="@color/bg_lightgrey">
 
-        <EditText
-            android:id="@+id/etEmail"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/bg_dark_blue" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="48dp"
-            android:autofillHints="email"
-            android:background="@drawable/edit_background"
-            android:drawableEnd="@drawable/custom_email_icon"
-            android:drawablePadding="12dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginTop="50dp"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/dark"
-            android:textSize="14sp"/>
+            android:textColorHint="@color/bg_lightgrey"
+            app:boxStrokeColor="@color/bg_dark_blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintTextColor="@color/bg_dark_blue"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/bg_lightgrey">
 
-        <EditText
-            android:id="@+id/etTel"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/bg_dark_blue" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTel"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="48dp"
-            android:autofillHints="telephone"
-            android:background="@drawable/edit_background"
-            android:drawableEnd="@drawable/custom_phone_icon"
-            android:drawablePadding="12dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginTop="50dp"
             android:hint="@string/tel"
-            android:inputType="phone"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/dark"
-            android:textSize="14sp"/>
+            android:textColorHint="@color/bg_lightgrey"
+            app:boxStrokeColor="@color/bg_dark_blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintTextColor="@color/bg_dark_blue"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:startIconTint="@color/bg_lightgrey">
 
-        <EditText
-            android:id="@+id/etMdp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/bg_dark_blue" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilMdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="48dp"
-            android:autofillHints="mdp"
-            android:background="@drawable/edit_background"
-            android:drawableEnd="@drawable/custom_lock_icon"
-            android:drawablePadding="12dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginTop="50dp"
             android:hint="@string/mdp"
-            android:inputType="textPassword"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/dark"
-            android:textSize="14sp"/>
+            android:textColorHint="@color/bg_lightgrey"
+            app:boxStrokeColor="@color/bg_dark_blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintTextColor="@color/bg_dark_blue"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/bg_lightgrey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/bg_dark_blue" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -144,14 +165,15 @@
         android:id="@+id/btn_inscription"
         android:layout_width="220dp"
         android:layout_height="69dp"
-        app:cornerRadius="30dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="52dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="@string/inscription"
         android:textSize="17sp"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
 

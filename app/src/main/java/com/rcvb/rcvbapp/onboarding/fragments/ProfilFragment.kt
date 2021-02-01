@@ -1,23 +1,22 @@
 package com.rcvb.rcvbapp.onboarding.fragments
 
-import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.FragmentProfilBinding
 
-class ProfilFragment: DialogFragment() {
+class ProfilFragment: Fragment() {
 
     private var _binding: FragmentProfilBinding? = null
     private val binding get() = _binding!!
@@ -44,12 +43,13 @@ class ProfilFragment: DialogFragment() {
                     .setTitle("Déconnexion")
                     .setMessage("Etes-vous sûr de vouloir vous déconnecter ?")
                     .setBackground(resources.getDrawable(R.drawable.bg_message, null))
-                    .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+                    .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+                        // Déconnexion
                         FirebaseAuth.getInstance().signOut()
                         this.googleSignOut()
                         findNavController().navigate(R.id.action_profilFragmentNav_to_mainActivity)
                     })
-                    .setNegativeButton("Annuler", DialogInterface.OnClickListener { dialog, which ->
+                    .setNegativeButton("Annuler", DialogInterface.OnClickListener { _, _ ->
 
                     })
                     .show()
@@ -59,6 +59,22 @@ class ProfilFragment: DialogFragment() {
         }
 
         return binding.root
+    }
+
+    private fun getNomProfil(): TextInputLayout {
+        return binding.tilNomProfil
+    }
+    private fun getPreomProfil(): TextInputLayout {
+        return binding.tilPrenomProfil
+    }
+    private fun getEmailProfil(): TextInputLayout {
+        return binding.tilEmailProfil
+    }
+    private fun getTelProfil(): TextInputLayout {
+        return binding.tilTelProfil
+    }
+    private fun getMdpProfil(): TextInputLayout {
+        return binding.tilMdpProfil
     }
 
     private fun googleSignOut(){
