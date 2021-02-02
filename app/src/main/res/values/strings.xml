@@ -44,6 +44,15 @@
     <string name="google_connexion">Se connecter avec Google</string>
     <string name="verifier_email">Vérifier votre messagerie</string>
     <string name="content_email">Image d\'email</string>
+    <string name="like">Like</string>
+    <string name="partager">Partager</string>
+    <string name="categorie">Categorie</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi suscipit lectus et condimentum molestie. In maximus purus sed tempus tempus. Vestibulum sed dignissim urna. Aenean non ipsum varius purus bibendum suscipit sed ullamcorper nunc. Vivamus lacinia nulla eu est bibendum condimentum. Integer in risus nec lectus ullamcorper vehicula. Nam leo quam, semper ornare dignissim eu, porttitor eu felis. Integer aliquam sollicitudin lacus ultricies placerat. Nulla interdum ex id volutpat cursus. Praesent tristique augue a velit tincidunt mattis. Quisque lobortis consequat lectus, vitae interdum dolor tincidunt non. Sed lobortis enim velit, a sodales dui laoreet a. Praesent aliquet arcu arcu, sed consequat velit molestie in. Suspendisse at augue eget lectus hendrerit congue ac a metus. In laoreet libero sapien, id porta purus tempor at.</string>
+    <string name="image_de_l_article">Image de l\'article</string>
+    <string name="actu_du_rcvb">Actu du RCVB</string>
+    <string name="actualite">Actualités</string>
+    <string name="publi_le_02_02_2001">Publié le 02/02/2001</string>
+    <string name="titre_de_l_article">Titre de l\'article</string>
 
 
 </resources>

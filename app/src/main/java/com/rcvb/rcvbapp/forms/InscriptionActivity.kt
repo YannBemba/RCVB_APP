@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.core.content.res.ResourcesCompat
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -16,8 +14,9 @@ import com.rcvb.rcvbapp.databinding.ActivityInscriptionBinding
 import com.rcvb.rcvbapp.entites.Utilisateur
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
-import www.sanju.motiontoast.MotionToast
-import java.lang.Exception
+import java.util.*
+import kotlin.Exception
+import kotlin.collections.mutableMapOf as mutableMapOf
 
 class InscriptionActivity : AppCompatActivity() {
 
@@ -25,6 +24,7 @@ class InscriptionActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
 
+    private val utilCollectionRef = Firebase.firestore.collection("utilisateurs")
 
     private lateinit var tilNomUtils: TextInputLayout
     private lateinit var tilPrenomUtils: TextInputLayout
@@ -102,13 +102,12 @@ class InscriptionActivity : AppCompatActivity() {
             tilMdpUtils.requestFocus()
             return
         }
+        // Insertion d'un utilisateur
+        val util = Utilisateur(nom, prenom, email, tel, mdp)
+        createUtil(util)
 
         firebaseCreateUser(email, mdp)
 
-        // Insertion d'un utilisateur
-        //val utils = Utilisateur(nom, prenom, email, tel, mdp)
-
-        //addUtil(utils)
     }
 
     private fun firebaseCreateUser(email: String, mdp: String) {
@@ -132,10 +131,24 @@ class InscriptionActivity : AppCompatActivity() {
             Toast.makeText(this, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
                     .show()
         } else {
-            Toast.makeText(this, "Connexion réussie", Toast.LENGTH_LONG)
-                    .show()
+
             val intent = Intent(this, ConnexionActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun createUtil(util: Utilisateur) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            utilCollectionRef.add(util).await()
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@InscriptionActivity, "Utilisateur ajouté à Firestore", Toast.LENGTH_LONG)
+                        .show()
+            }
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@InscriptionActivity, e.message, Toast.LENGTH_LONG)
+                        .show()
+            }
         }
     }
 

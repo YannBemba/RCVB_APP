@@ -20,7 +20,7 @@ class SettingsFragment : Fragment() {
 
         _binding = FragmentSettingsBinding.inflate(layoutInflater)
 
-        val conditionBtn = binding.conditionsFragmentCard
+        /*val conditionBtn = binding.conditionsFragmentCard
         val confidentialiteBtn = binding.confidentialiteFragmentCard
         val aproposBtn = binding.aproposFragmentCard
 
@@ -34,7 +34,7 @@ class SettingsFragment : Fragment() {
 
         aproposBtn.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_AProposFragment)
-        }
+        }*/
 
         return binding.root
     }
