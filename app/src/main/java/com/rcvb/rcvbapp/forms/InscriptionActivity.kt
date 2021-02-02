@@ -4,26 +4,27 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
-import com.google.android.gms.tasks.OnCompleteListener
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.ActivityInscriptionBinding
 import com.rcvb.rcvbapp.entites.Utilisateur
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
 import www.sanju.motiontoast.MotionToast
+import java.lang.Exception
 
 class InscriptionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInscriptionBinding
+
     private lateinit var mAuth: FirebaseAuth
+
 
     private lateinit var tilNomUtils: TextInputLayout
     private lateinit var tilPrenomUtils: TextInputLayout
@@ -47,12 +48,11 @@ class InscriptionActivity : AppCompatActivity() {
         val btnInscription = binding.btnInscription
 
         btnInscription.setOnClickListener {
-            enregistrerUtils()
+            saveUtils()
         }
 
     }
-
-    private fun enregistrerUtils(){
+    private fun saveUtils(){
 
         val nom = binding.tilNom.editText?.text.toString().trim()
         val prenom = binding.tilPrenom.editText?.text.toString().trim()
@@ -105,61 +105,38 @@ class InscriptionActivity : AppCompatActivity() {
 
         firebaseCreateUser(email, mdp)
 
+        // Insertion d'un utilisateur
+        //val utils = Utilisateur(nom, prenom, email, tel, mdp)
+
+        //addUtil(utils)
     }
 
     private fun firebaseCreateUser(email: String, mdp: String) {
-
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                mAuth.createUserWithEmailAndPassword(email, mdp)
-                withContext(Dispatchers.Main) {
-                    checkUser()
+                mAuth.createUserWithEmailAndPassword(email, mdp).await()
+                withContext(Dispatchers.Main)  {
+                    checkLoggedInState()
                 }
-            } catch (e: Exception) {
+            } catch(e: Exception) {
                 withContext(Dispatchers.Main) {
-                    e.message?.let {
-                        MotionToast.Companion.darkColorToast(
-                                this@InscriptionActivity,
-                                "Erreur de connexion",
-                                it,
-                                MotionToast.TOAST_SUCCESS,
-                                MotionToast.GRAVITY_BOTTOM,
-                                MotionToast.LONG_DURATION,
-                                ResourcesCompat.getFont(this@InscriptionActivity, R.font.poppins_bold)
-                        )
-                    }
+                    Toast.makeText(this@InscriptionActivity, e.message, Toast.LENGTH_LONG)
+                            .show()
                 }
             }
         }
-
     }
 
-    private fun checkUser() {
-        val user = mAuth.currentUser
-
-        if(user == null) {
-            MotionToast.Companion.darkColorToast(
-                    this@InscriptionActivity,
-                    "Erreur de connexion",
-                    "",
-                    MotionToast.TOAST_SUCCESS,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this@InscriptionActivity, R.font.poppins_bold)
-            )
+    private fun checkLoggedInState() {
+        if(mAuth.currentUser == null) {
+            Toast.makeText(this, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
+                    .show()
         } else {
-            MotionToast.Companion.darkColorToast(
-                    this,
-                    "Inscription réussie",
-                    "Votre compte a bien été crée",
-                    MotionToast.TOAST_SUCCESS,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this@InscriptionActivity, R.font.poppins_bold)
-            )
-            startActivity(Intent(this@InscriptionActivity, ConnexionActivity::class.java))
+            Toast.makeText(this, "Connexion réussie", Toast.LENGTH_LONG)
+                    .show()
+            val intent = Intent(this, ConnexionActivity::class.java)
+            startActivity(intent)
         }
-
     }
 
 }
