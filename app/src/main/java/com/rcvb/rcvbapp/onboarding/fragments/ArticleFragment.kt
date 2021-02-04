@@ -1,41 +1,65 @@
 package com.rcvb.rcvbapp.onboarding.fragments
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.rcvb.rcvbapp.databinding.FragmentBoutiqueBinding
+import com.google.firebase.firestore.Query
+import com.rcvb.rcvbapp.adapter.ArticleAdapter
 import com.rcvb.rcvbapp.databinding.FragmentClubBinding
 import com.rcvb.rcvbapp.entites.Article
+import com.rcvb.rcvbapp.entites.FirestoreCollections
 
 class ArticleFragment : Fragment() {
 
     private var _binding: FragmentClubBinding? = null
     private val binding get() = _binding!!
 
-    // Création de la db Article
-    private val dbArticle = Firebase.firestore
+    private val db = FirestoreCollections.FIRESTORE_DATABASE
+    private val articleCollectionRef = FirestoreCollections.FIRESTORE_ARTICLES
+
+    private var articleAdapter: ArticleAdapter? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         _binding = FragmentClubBinding.inflate(layoutInflater)
 
-        val query = dbArticle.collection("article")
-
-        val options = FirestoreRecyclerOptions.Builder<Article>().setQuery(query, Article::class.java)
-            .setLifecycleOwner(this)
-            .build()
-
-        // Création de l'adapter
+        setUpRecyclerView()
 
         return binding.root
     }
+
+    private fun setUpRecyclerView() {
+
+        val articleQuery: Query = articleCollectionRef
+        val articleRecyclerView = binding.articleRecyclerview
+
+        val firestoreRecyclerOptions: FirestoreRecyclerOptions<Article> = FirestoreRecyclerOptions.Builder<Article>()
+                .setQuery(articleQuery, Article::class.java)
+                .build()
+
+        articleAdapter = ArticleAdapter(firestoreRecyclerOptions)
+
+        articleRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        articleRecyclerView.adapter = articleAdapter
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        articleAdapter?.startListening()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        articleAdapter?.stopListening()
+    }
+
 
 }

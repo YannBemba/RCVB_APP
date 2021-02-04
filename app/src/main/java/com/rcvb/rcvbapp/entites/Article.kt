@@ -1,11 +1,13 @@
 package com.rcvb.rcvbapp.entites
 
-import android.graphics.Bitmap
+import android.widget.ImageView
+
 
 data class Article(
-    var titre: String,
-    var image: Bitmap,
-    var description: String,
-    var nbLike: Int,
-    var commentaire: String
+        var categorie: String = "",
+        var titre: String = "",
+        var image: String = "",
+        var description: String = "",
+        var nbLike: Int = 0,
+        var commentaire: String = ""
 )

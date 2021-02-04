@@ -11,12 +11,12 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.ActivityInscriptionBinding
+import com.rcvb.rcvbapp.entites.FirestoreCollections
 import com.rcvb.rcvbapp.entites.Utilisateur
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import java.util.*
 import kotlin.Exception
-import kotlin.collections.mutableMapOf as mutableMapOf
 
 class InscriptionActivity : AppCompatActivity() {
 
@@ -25,7 +25,7 @@ class InscriptionActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
 
     private val utilCollectionRef = Firebase.firestore.collection("utilisateurs")
-
+//    private val utilCollectionRef = FirestoreCollections.FIRESTORE_UTILS
     private lateinit var tilNomUtils: TextInputLayout
     private lateinit var tilPrenomUtils: TextInputLayout
     private lateinit var tilEmailUtils: TextInputLayout
@@ -95,6 +95,7 @@ class InscriptionActivity : AppCompatActivity() {
         if(mdp.isEmpty()){
             tilMdpUtils.error = "Le mdp est requis"
             tilMdpUtils.requestFocus()
+            return
         }
 
         if(mdp.length < 6) {
