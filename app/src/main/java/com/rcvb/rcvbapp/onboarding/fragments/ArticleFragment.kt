@@ -19,11 +19,10 @@ class ArticleFragment : Fragment() {
     private var _binding: FragmentClubBinding? = null
     private val binding get() = _binding!!
 
-    private val db = FirestoreCollections.FIRESTORE_DATABASE
     private val articleCollectionRef = FirestoreCollections.FIRESTORE_ARTICLES
 
     private var articleAdapter: ArticleAdapter? = null
-
+    
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -43,6 +42,7 @@ class ArticleFragment : Fragment() {
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<Article> = FirestoreRecyclerOptions.Builder<Article>()
                 .setQuery(articleQuery, Article::class.java)
                 .build()
+
 
         articleAdapter = ArticleAdapter(firestoreRecyclerOptions)
 

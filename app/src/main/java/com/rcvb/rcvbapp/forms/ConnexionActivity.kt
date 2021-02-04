@@ -76,54 +76,6 @@ class ConnexionActivity: AppCompatActivity() {
         return binding.tilMdpConnexion
     }
 
-    private suspend fun applyAnimations() {
-
-        binding.tvTitreConnexion.animate()
-            .alpha(0f)
-            .duration = 400L
-
-        binding.view3.animate()
-            .alpha(0f)
-            .duration = 400L
-
-        binding.linearConnect.animate()
-            .alpha(0f)
-            .translationXBy(1200f)
-            .duration = 400L
-
-        binding.btnConnexion.animate()
-            .alpha(0f)
-            .duration = 400L
-
-        binding.tvMdpOublie.animate()
-            .alpha(0f)
-            .translationXBy(-1200f)
-            .duration = 400L
-
-        binding.tvInscription.animate()
-            .alpha(0f)
-            .translationXBy(1200f)
-            .duration = 400L
-
-        binding.linearApi.animate()
-            .alpha(0f)
-            .duration = 400L
-
-        delay(300)
-
-        binding.successBg.animate().alpha(1f).duration = 600L
-        binding.successBg.animate().rotationBy(90f).duration = 600L
-        binding.successBg.animate().scaleXBy(900f).duration = 800L
-        binding.successBg.animate().scaleYBy(900f).duration = 600L
-
-        delay(500)
-
-        binding.successLottie.animate().alpha(1f).duration = 400L
-
-        delay(2000L)
-
-    }
-
     private fun userLogin() {
 
         val email = this.getEmailEdit().editText?.text.toString().trim()
@@ -178,10 +130,29 @@ class ConnexionActivity: AppCompatActivity() {
             Toast.makeText(this@ConnexionActivity, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
                     .show()
         } else {
-            Toast.makeText(this@ConnexionActivity, "Bienvenue", Toast.LENGTH_LONG)
-                    .show()
-            startActivity(Intent(this@ConnexionActivity, RCVBAppActivity::class.java))
+            sendEmailVerification()
         }
+    }
+
+    private fun sendEmailVerification(){
+
+        val util = FirebaseAuth.getInstance().currentUser!!
+
+        if(util.isEmailVerified) {
+            startActivity(Intent(this@ConnexionActivity, RCVBAppActivity::class.java))
+            finish()
+        } else {
+            util.sendEmailVerification()
+            MaterialAlertDialogBuilder(this)
+                    .setIcon(R.drawable.ic_email_check)
+                    .setTitle("Confirmer votre compte")
+                    .setMessage("Vérifier votre boîte mail pour confirmer votre compte")
+                    .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+
+                    })
+                    .show()
+        }
+
     }
 
     private fun googleAuth() {
@@ -199,7 +170,6 @@ class ConnexionActivity: AppCompatActivity() {
         btnGoogle.setOnClickListener {
             signIn()
         }
-
     }
 
     private fun signIn() {

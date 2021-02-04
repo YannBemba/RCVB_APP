@@ -25,7 +25,7 @@ class InscriptionActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
 
     private val utilCollectionRef = Firebase.firestore.collection("utilisateurs")
-//    private val utilCollectionRef = FirestoreCollections.FIRESTORE_UTILS
+//  private val utilCollectionRef = FirestoreCollections.FIRESTORE_UTILS
     private lateinit var tilNomUtils: TextInputLayout
     private lateinit var tilPrenomUtils: TextInputLayout
     private lateinit var tilEmailUtils: TextInputLayout

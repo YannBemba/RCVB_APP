@@ -86,6 +86,8 @@
             android:layout_height="25dp"
             android:layout_marginEnd="30dp"
             android:contentDescription="@string/like"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_favorite" />
 
         <ImageView
@@ -94,6 +96,8 @@
             android:layout_height="25dp"
             android:layout_marginEnd="30dp"
             android:contentDescription="@string/partager"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_share" />
 
         <ImageView
@@ -101,6 +105,8 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:contentDescription="@string/partager"
+            android:clickable="true"
+            android:focusable="true"
             android:src="@drawable/ic_chat" />
 
     </LinearLayout>
