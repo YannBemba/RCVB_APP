@@ -20,21 +20,21 @@ class SettingsFragment : Fragment() {
 
         _binding = FragmentSettingsBinding.inflate(layoutInflater)
 
-        /*val conditionBtn = binding.conditionsFragmentCard
+        val conditionBtn = binding.conditionsFragmentCard
         val confidentialiteBtn = binding.confidentialiteFragmentCard
         val aproposBtn = binding.aproposFragmentCard
 
         conditionBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_conditionsFragment)
+            findNavController().navigate(R.id.action_settingsFragmentNav_to_conditionsFragment2)
         }
 
         confidentialiteBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_politiqueFragment)
+            findNavController().navigate(R.id.action_settingsFragmentNav_to_politiqueFragment2)
         }
 
         aproposBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_AProposFragment)
-        }*/
+            findNavController().navigate(R.id.action_settingsFragmentNav_to_AProposFragment2)
+        }
 
         return binding.root
     }

@@ -4,25 +4,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background_email_alert"
-    android:backgroundTint="#252525"
-    android:id="@+id/item_article"
+    android:id="@+id/itemArticle"
     android:clickable="true"
     android:focusable="true"
+    android:background="@drawable/background_email_alert"
+    android:backgroundTint="#252525"
     android:layout_margin="5dp"
-    android:layout_height="190dp">
+    android:layout_height="186dp">
+
+    <TextView
+        android:id="@+id/datePublication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Publié le"
+        android:textColor="@color/bg_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.692" />
 
     <ImageView
         android:id="@+id/image_article"
         android:layout_width="180dp"
         android:layout_height="100dp"
         android:layout_margin="5dp"
-        android:background="@drawable/background_img"
+        android:background="@color/bg_white"
         android:contentDescription="@string/image_de_l_article"
         android:src="@color/bg_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -71,7 +83,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

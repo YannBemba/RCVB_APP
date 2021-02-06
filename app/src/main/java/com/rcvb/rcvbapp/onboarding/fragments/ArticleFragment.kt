@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.rcvb.rcvbapp.adapter.ArticleAdapter
 import com.rcvb.rcvbapp.databinding.FragmentClubBinding
 import com.rcvb.rcvbapp.entites.Article
@@ -19,13 +21,13 @@ class ArticleFragment : Fragment() {
     private var _binding: FragmentClubBinding? = null
     private val binding get() = _binding!!
 
-    private val articleCollectionRef = FirestoreCollections.FIRESTORE_ARTICLES
+    private val articleCollectionRef = Firebase.firestore.collection("articles")
 
     private var articleAdapter: ArticleAdapter? = null
     
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentClubBinding.inflate(layoutInflater)
 
@@ -40,9 +42,8 @@ class ArticleFragment : Fragment() {
         val articleRecyclerView = binding.articleRecyclerview
 
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<Article> = FirestoreRecyclerOptions.Builder<Article>()
-                .setQuery(articleQuery, Article::class.java)
-                .build()
-
+            .setQuery(articleQuery, Article::class.java)
+            .build()
 
         articleAdapter = ArticleAdapter(firestoreRecyclerOptions)
 
@@ -60,6 +61,5 @@ class ArticleFragment : Fragment() {
         super.onDestroy()
         articleAdapter?.stopListening()
     }
-
 
 }

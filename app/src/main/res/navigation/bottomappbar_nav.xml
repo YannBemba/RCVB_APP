@@ -40,7 +40,17 @@
         android:id="@+id/settingsFragmentNav"
         android:name="com.rcvb.rcvbapp.onboarding.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragmentNav_to_conditionsFragment2"
+            app:destination="@id/conditionsFragment2" />
+        <action
+            android:id="@+id/action_settingsFragmentNav_to_AProposFragment2"
+            app:destination="@id/AProposFragment2" />
+        <action
+            android:id="@+id/action_settingsFragmentNav_to_politiqueFragment2"
+            app:destination="@id/politiqueFragment2" />
+    </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.rcvb.rcvbapp.MainActivity"
@@ -50,10 +60,54 @@
         android:id="@+id/clubFragment"
         android:name="com.rcvb.rcvbapp.onboarding.fragments.ArticleFragment"
         android:label="fragment_club"
-        tools:layout="@layout/fragment_club" />
+        tools:layout="@layout/fragment_club" >
+        <action
+            android:id="@+id/action_clubFragment_to_articleDescFragment"
+            app:destination="@id/articleDescFragment" />
+    </fragment>
     <fragment
         android:id="@+id/boutiqueFragment"
         android:name="com.rcvb.rcvbapp.onboarding.fragments.BoutiqueFragment"
         android:label="fragment_boutique"
-        tools:layout="@layout/fragment_boutique" />
+        tools:layout="@layout/fragment_boutique" >
+        <action
+            android:id="@+id/action_boutiqueFragment_to_menuFragmentNav"
+            app:destination="@id/menuFragmentNav" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDescFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.ArticleDescFragment"
+        android:label="fragment_article_desc"
+        tools:layout="@layout/fragment_article_desc" >
+        <action
+            android:id="@+id/action_articleDescFragment_to_clubFragment"
+            app:destination="@id/clubFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/conditionsFragment2"
+        android:name="com.rcvb.rcvbapp.ConditionsFragment"
+        android:label="fragment_conditions"
+        tools:layout="@layout/fragment_conditions" >
+        <action
+            android:id="@+id/action_conditionsFragment2_to_settingsFragmentNav"
+            app:destination="@id/settingsFragmentNav" />
+    </fragment>
+    <fragment
+        android:id="@+id/AProposFragment2"
+        android:name="com.rcvb.rcvbapp.AProposFragment"
+        android:label="fragment_a_propos"
+        tools:layout="@layout/fragment_a_propos" >
+        <action
+            android:id="@+id/action_AProposFragment2_to_settingsFragmentNav"
+            app:destination="@id/settingsFragmentNav" />
+    </fragment>
+    <fragment
+        android:id="@+id/politiqueFragment2"
+        android:name="com.rcvb.rcvbapp.PolitiqueFragment"
+        android:label="fragment_politique"
+        tools:layout="@layout/fragment_politique" >
+        <action
+            android:id="@+id/action_politiqueFragment2_to_settingsFragmentNav2"
+            app:destination="@id/settingsFragmentNav" />
+    </fragment>
 </navigation>

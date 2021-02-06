@@ -7,5 +7,120 @@
     android:background="@color/bg_white"
     tools:context=".onboarding.fragments.SettingsFragment">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/conditionsFragmentCard"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/dark"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0.8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/condition"
+                android:textAllCaps="true"
+                android:textColor="@color/bg_white"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/confidentialiteFragmentCard"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/bg_white"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0.8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conditionsFragmentCard">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/confidentialite"
+                android:textAllCaps="true"
+                android:textColor="@color/dark"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/aproposFragmentCard"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/dark"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0.8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confidentialiteFragmentCard"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="@color/bg_white"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/a_propos"
+                android:textAllCaps="true"
+                android:textColor="@color/bg_white"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

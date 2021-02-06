@@ -1,30 +1,37 @@
 package com.rcvb.rcvbapp.adapter
 
-import android.net.Uri
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.utils.Logger.error
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.FirebaseFirestore
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.ItemArticleClubBinding
 import com.rcvb.rcvbapp.entites.Article
+import com.rcvb.rcvbapp.entites.FirestoreCollections
 
 class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
     : FirestoreRecyclerAdapter<Article, ArticleAdapter.ArticleViewHolder>(options) {
 
-    class ArticleViewHolder(val binding: ItemArticleClubBinding): RecyclerView.ViewHolder(binding.root) {
-
+    class ArticleViewHolder(val binding: ItemArticleClubBinding):
+            RecyclerView.ViewHolder(binding.root) {
+        var item_article = binding.itemArticle // Layout clickable
         var categorie = binding.categorieArticle
         var titre = binding.titreArticle
-        //var description = binding.descriptionArticle
         var imageArt = binding.imageArticle
+        var datePub = binding.datePublication
         var imgLike = binding.imgLike
         var imgPartager = binding.imgPartager
         var imgCommentaire = binding.imgCommentaire
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(ItemArticleClubBinding.inflate(
@@ -34,27 +41,28 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int, model: Article) {
 
         holder.categorie.text = model.categorie
         holder.titre.text = model.titre
-        //holder.binding.descriptionArticle.text = model.description
+        holder.datePub.text = "Publié le ${model.datePublication}"
 
-        Glide.with(holder.itemView)
-                .load(Uri.parse(model.url))
+        Glide.with(holder.imageArt.context)
+                .load(model.url)
                 .into(holder.imageArt)
 
-        // Vérifier si l'article a été liké
-
-        if(model.isLike) {
-            holder.imgLike.setImageResource(R.drawable.ic_favorite_fill)
-        } else {
-            holder.imgLike.setImageResource(R.drawable.ic_favorite)
+        holder.item_article.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.action_clubFragment_to_articleDescFragment)
         }
 
-        holder.imgLike.setOnClickListener {
-            // Inverser si le bouton est like ou non
-            model.isLike = !model.isLike
+        holder.imgPartager.setOnClickListener {
+            val shareIntent = Intent().apply {
+                this.action = Intent.ACTION_SEND
+                this.putExtra(Intent.EXTRA_TEXT, "Données partagées entre 2 applications")
+                this.type = "text/plain"
+            }
+            holder.itemView.context.startActivity(shareIntent)
         }
 
     }
