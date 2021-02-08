@@ -12,13 +12,13 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rcvb.rcvbapp.adapter.ArticleAdapter
-import com.rcvb.rcvbapp.databinding.FragmentClubBinding
+import com.rcvb.rcvbapp.databinding.FragmentArticleBinding
 import com.rcvb.rcvbapp.entites.Article
 import com.rcvb.rcvbapp.entites.FirestoreCollections
 
 class ArticleFragment : Fragment() {
 
-    private var _binding: FragmentClubBinding? = null
+    private var _binding: FragmentArticleBinding? = null
     private val binding get() = _binding!!
 
     private val articleCollectionRef = Firebase.firestore.collection("articles")
@@ -29,7 +29,7 @@ class ArticleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentClubBinding.inflate(layoutInflater)
+        _binding = FragmentArticleBinding.inflate(layoutInflater)
 
         setUpRecyclerView()
 

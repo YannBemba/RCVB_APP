@@ -191,16 +191,6 @@ class ProfilFragment: Fragment() {
                 }
             }
 
-    private fun retrieveUtil() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot = utilCollectionsRef.get().await()
-
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-
-            }
-        }
-    }
 
 
     private fun googleSignOut(){
