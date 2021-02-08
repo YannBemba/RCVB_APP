@@ -21,5 +21,4 @@ class AProposFragment : Fragment() {
         return binding.root
     }
 
-
 }

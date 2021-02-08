@@ -14,6 +14,7 @@
     <color name="bg_beige">#FFE0BA</color>
     <color name="bg_google">#B31B1B</color>
     <color name="bg_facebook">#3b5998</color>
+    <color name="bg_light_dark">#252525</color>
 
     <!-- ICON -->
     <color name="ic_yellow">@color/bg_yellow</color>

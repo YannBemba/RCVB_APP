@@ -117,5 +117,8 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
     kapt 'com.github.bumptech.glide:annotations:4.11.0'
 
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 }

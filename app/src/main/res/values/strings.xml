@@ -53,6 +53,7 @@
     <string name="actualite">Actualités</string>
     <string name="publi_le_02_02_2001">Publié le 02/02/2001</string>
     <string name="titre_de_l_article">Titre de l\'article</string>
+    <string name="publie_le">Publié le</string>
 
 
 </resources>

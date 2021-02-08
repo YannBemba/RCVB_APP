@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:background="@drawable/background_email_alert"
-    android:backgroundTint="#252525"
+    android:backgroundTint="@color/bg_light_dark"
     android:layout_margin="5dp"
     android:layout_height="186dp">
 
@@ -16,7 +16,7 @@
         android:id="@+id/datePublication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Publié le"
+        android:text="@string/publie_le"
         android:textColor="@color/bg_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +30,9 @@
         android:layout_width="180dp"
         android:layout_height="100dp"
         android:layout_margin="5dp"
-        android:background="@color/bg_white"
-        android:contentDescription="@string/image_de_l_article"
         android:src="@color/bg_white"
+        android:backgroundTint="@drawable/background_img"
+        android:contentDescription="@string/image_de_l_article"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
