@@ -36,11 +36,14 @@
             android:id="@+id/categorie_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="@string/categorie"
             android:textSize="15sp"
-            android:textColor="@color/bg_white"
-            android:fontFamily="@font/poppins"
-            android:layout_marginTop="10dp" />
+            android:textColor="@color/dark"
+            android:background="@drawable/bg_radius"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:id="@+id/titre_article_desc"
@@ -49,7 +52,8 @@
             android:text="@string/titre_de_l_article"
             android:textSize="30sp"
             android:textColor="@color/bg_bluesky"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:fontFamily="@font/poppins_bold"
             android:layout_marginTop="32dp" />
 
@@ -68,7 +72,7 @@
             android:textColor="@color/bg_lightgrey"
             android:layout_gravity="center"
             android:lineSpacingExtra="10dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="30dp"/>
 
     </LinearLayout>
 

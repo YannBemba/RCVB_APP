@@ -46,6 +46,7 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         holder.categorie.text = model.categorie
         holder.titre.text = model.titre
         holder.description = model.description
+        "Publié le ${model.datePublication}".also { holder.datePub.text = it }
 
         Log.d(TAG, "Url image = ${model.url} ")
 
