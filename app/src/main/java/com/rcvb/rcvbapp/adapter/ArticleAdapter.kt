@@ -4,17 +4,15 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.FirebaseFirestore
-import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.ItemArticleClubBinding
 import com.rcvb.rcvbapp.entites.Article
-import com.rcvb.rcvbapp.entites.FirestoreCollections
-import java.text.SimpleDateFormat
+import com.rcvb.rcvbapp.onboarding.fragments.ArticleFragmentDirections
 
 class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
     : FirestoreRecyclerAdapter<Article, ArticleAdapter.ArticleViewHolder>(options) {
@@ -32,6 +30,7 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         var imgLike = binding.imgLike
         var imgPartager = binding.imgPartager
         var imgCommentaire = binding.imgCommentaire
+        var description: String = ""
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
@@ -46,8 +45,9 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
 
         holder.categorie.text = model.categorie
         holder.titre.text = model.titre
+        holder.description = model.description
 
-        Log.d("ArticleAdapter", "Url image = ${model.url} ")
+        Log.d(TAG, "Url image = ${model.url} ")
 
         // Conversion du TimeStamp en String
 
@@ -58,8 +58,16 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
                 .into(holder.imageArt)
 
         holder.item_article.setOnClickListener {
-            Log.d("ArticleAdapter", "Url image = ${model.url} ")
-            holder.itemView.findNavController().navigate(R.id.action_clubFragment_to_articleDescFragment)
+
+            val action = ArticleFragmentDirections.actionClubFragmentToArticleDescFragment(
+                    model.url,
+                    holder.datePub.text.toString(),
+                    holder.categorie.text.toString(),
+                    holder.titre.text.toString(),
+                    holder.description
+            )
+            it.findNavController().navigate(action)
+
         }
 
         // Système de partage

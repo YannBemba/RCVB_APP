@@ -1,4 +1,4 @@
-package com.rcvb.rcvbapp
+package com.rcvb.rcvbapp.onboarding.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

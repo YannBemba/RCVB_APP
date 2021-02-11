@@ -24,6 +24,20 @@ class ArticleDescFragment() : Fragment() {
     ): View {
         _binding = FragmentArticleDescBinding.inflate(layoutInflater)
 
+        arguments.let {
+            val args = ArticleDescFragmentArgs.fromBundle(it!!)
+
+            Glide.with(requireContext())
+                    .load(args.urlDesc)
+                    .into(binding.imageDesc)
+
+            binding.datePublicationDesc.text = args.datePubDesc
+            binding.categorieDesc.text = args.categorieDesc
+            binding.titreArticleDesc.text = args.titreDesc
+            binding.descriptionArticleDesc.text = args.description
+
+        }
+
         return binding.root
     }
 

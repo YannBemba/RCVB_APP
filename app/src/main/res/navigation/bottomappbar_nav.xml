@@ -82,10 +82,25 @@
         <action
             android:id="@+id/action_articleDescFragment_to_clubFragment"
             app:destination="@id/clubFragment" />
+        <argument
+            android:name="urlDesc"
+            app:argType="string" />
+        <argument
+            android:name="datePubDesc"
+            app:argType="string" />
+        <argument
+            android:name="categorieDesc"
+            app:argType="string" />
+        <argument
+            android:name="titreDesc"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/conditionsFragment2"
-        android:name="com.rcvb.rcvbapp.ConditionsFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.ConditionsFragment"
         android:label="fragment_conditions"
         tools:layout="@layout/fragment_conditions" >
         <action
@@ -94,7 +109,7 @@
     </fragment>
     <fragment
         android:id="@+id/AProposFragment2"
-        android:name="com.rcvb.rcvbapp.AProposFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.AProposFragment"
         android:label="fragment_a_propos"
         tools:layout="@layout/fragment_a_propos" >
         <action
@@ -103,7 +118,7 @@
     </fragment>
     <fragment
         android:id="@+id/politiqueFragment2"
-        android:name="com.rcvb.rcvbapp.PolitiqueFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.PolitiqueFragment"
         android:label="fragment_politique"
         tools:layout="@layout/fragment_politique" >
         <action

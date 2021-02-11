@@ -3,27 +3,21 @@ package com.rcvb.rcvbapp.forms
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.RCVBAppActivity
-import com.rcvb.rcvbapp.SuccessActivity
 import com.rcvb.rcvbapp.databinding.ActivityConnexionBinding
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.withTestContext
 import java.lang.Exception
 
 class ConnexionActivity: AppCompatActivity() {
@@ -104,6 +98,7 @@ class ConnexionActivity: AppCompatActivity() {
         }
 
         connecterUtils(email, mdp)
+        finish()
 
     }
 
@@ -208,6 +203,7 @@ class ConnexionActivity: AppCompatActivity() {
                             .show()
                     val intent = Intent(this@ConnexionActivity, RCVBAppActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {

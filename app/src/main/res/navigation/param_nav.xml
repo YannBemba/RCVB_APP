@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/conditionsFragment"
-        android:name="com.rcvb.rcvbapp.ConditionsFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.ConditionsFragment"
         android:label="fragment_conditions"
         tools:layout="@layout/fragment_conditions" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/politiqueFragment"
-        android:name="com.rcvb.rcvbapp.PolitiqueFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.PolitiqueFragment"
         android:label="fragment_politique"
         tools:layout="@layout/fragment_politique" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/AProposFragment"
-        android:name="com.rcvb.rcvbapp.AProposFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.fragments.AProposFragment"
         android:label="fragment_a_propos"
         tools:layout="@layout/fragment_a_propos" >
         <action

@@ -17,12 +17,13 @@
         android:layout_margin="10dp">
 
         <ImageView
-            android:id="@+id/image_article"
+            android:id="@+id/image_desc"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@color/dark"/>
 
         <TextView
+            android:id="@+id/date_publication_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/publi_le_02_02_2001"
@@ -32,6 +33,7 @@
             android:layout_marginTop="20dp"/>
 
         <TextView
+            android:id="@+id/categorie_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/categorie"
@@ -41,14 +43,15 @@
             android:layout_marginTop="10dp" />
 
         <TextView
+            android:id="@+id/titre_article_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/titre_de_l_article"
             android:textSize="30sp"
-            android:textColor="@color/bg_white"
+            android:textColor="@color/bg_bluesky"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins_bold"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="32dp" />
 
         <View
             android:layout_width="50dp"
@@ -58,6 +61,7 @@
             android:layout_gravity="center"/>
 
         <TextView
+            android:id="@+id/description_article_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lorem"
