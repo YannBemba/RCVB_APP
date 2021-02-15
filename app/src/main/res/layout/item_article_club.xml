@@ -18,19 +18,23 @@
         android:layout_height="wrap_content"
         android:text="@string/publie_le"
         android:textColor="@color/bg_white"
+        android:textSize="10sp"
+        android:maxLines="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout3"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.692" />
+        app:layout_constraintVertical_bias="0.692"
+        tools:ignore="SmallSp" />
 
     <ImageView
         android:id="@+id/image_article"
         android:layout_width="180dp"
         android:layout_height="100dp"
         android:layout_margin="5dp"
-        android:src="@color/bg_white"
+        android:background="@drawable/background_img"
+        android:src="@color/bg_light_dark"
         android:contentDescription="@string/image_de_l_article"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

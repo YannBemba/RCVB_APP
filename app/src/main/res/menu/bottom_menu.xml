@@ -7,10 +7,6 @@
         android:title="@string/home"
         />
 
-    <item android:id="@+id/searchFragmentNav"
-        android:icon="@drawable/ic_search"
-        android:title="@string/rechercher"/>
-
     <item android:id="@+id/menuFragmentNav"
         android:icon="@drawable/ic_menu"
         android:title="@string/menu"/>

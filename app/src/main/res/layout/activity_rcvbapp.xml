@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/tv_dark_blue"
+        android:fitsSystemWindows="true"
+        app:labelVisibilityMode="auto"
         app:itemIconTint="@color/bg_white"
         app:itemRippleColor="@color/bg_bluesky"
         app:itemTextColor="@color/bg_white"

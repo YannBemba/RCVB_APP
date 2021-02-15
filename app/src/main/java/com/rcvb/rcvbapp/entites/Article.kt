@@ -12,4 +12,5 @@ data class Article(
         var commentaire: String = ""
 ){
     constructor() : this("", "", "", "", "", false, "")
+    constructor(titre: String) : this()
 }

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -13,6 +12,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.rcvb.rcvbapp.databinding.ItemArticleClubBinding
 import com.rcvb.rcvbapp.entites.Article
 import com.rcvb.rcvbapp.onboarding.fragments.ArticleFragmentDirections
+
 
 class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
     : FirestoreRecyclerAdapter<Article, ArticleAdapter.ArticleViewHolder>(options) {

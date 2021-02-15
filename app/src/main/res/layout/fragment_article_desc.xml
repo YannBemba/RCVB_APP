@@ -20,7 +20,7 @@
             android:id="@+id/image_desc"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/dark"/>
+            android:background="@color/bg_light_dark"/>
 
         <TextView
             android:id="@+id/date_publication_desc"
