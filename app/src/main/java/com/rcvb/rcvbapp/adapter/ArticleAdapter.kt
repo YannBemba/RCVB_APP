@@ -13,6 +13,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.rcvb.rcvbapp.databinding.ItemArticleClubBinding
 import com.rcvb.rcvbapp.entites.Article
 import com.rcvb.rcvbapp.onboarding.fragments.ArticleFragmentDirections
+import com.rcvb.rcvbapp.service.MyFirebaseMessagingService
 
 
 class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
@@ -21,7 +22,7 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
     private val TAG = "ArticleAdapter"
 
     class ArticleViewHolder(val binding: ItemArticleClubBinding):
-            RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root) {
 
         var item_article = binding.itemArticle // Layout clickable
         var categorie = binding.categorieArticle
@@ -31,19 +32,21 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         var imgLike = binding.imgLike
         var imgPartager = binding.imgPartager
         var imgCommentaire = binding.imgCommentaire
+        var id = 0
         var description: String = ""
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(ItemArticleClubBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false)
+            LayoutInflater.from(parent.context),
+            parent,
+            false)
         )
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int, model: Article) {
 
+        holder.id += 1
         holder.categorie.text = model.categorie
         holder.titre.text = model.titre
         holder.description = model.description
@@ -51,7 +54,7 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
 
         holder.imgCommentaire.setOnClickListener {
             Toast.makeText(holder.itemView.context, "Pas encore disponible", Toast.LENGTH_LONG)
-                    .show()
+                .show()
         }
 
         Log.d(TAG, "Url image = ${model.url} ")
@@ -59,17 +62,17 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         // Conversion du TimeStamp en String
 
         Glide.with(holder.itemView.context)
-                .load(model.url)
-                .into(holder.imageArt)
+            .load(model.url)
+            .into(holder.imageArt)
 
         holder.item_article.setOnClickListener {
 
             val action = ArticleFragmentDirections.actionClubFragmentToArticleDescFragment(
-                    model.url,
-                    holder.datePub.text.toString(),
-                    holder.categorie.text.toString(),
-                    holder.titre.text.toString(),
-                    holder.description
+                model.url,
+                holder.datePub.text.toString(),
+                holder.categorie.text.toString(),
+                holder.titre.text.toString(),
+                holder.description
             )
             it.findNavController().navigate(action)
 
@@ -89,6 +92,12 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
             holder.itemView.context.startActivity(shareIntent)
         }
 
+        showNotification()
+
+    }
+
+    private fun showNotification(): MyFirebaseMessagingService {
+        return MyFirebaseMessagingService()
     }
 
 

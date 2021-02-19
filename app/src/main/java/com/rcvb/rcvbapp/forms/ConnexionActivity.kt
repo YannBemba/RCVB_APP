@@ -115,7 +115,7 @@ class ConnexionActivity: AppCompatActivity() {
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@ConnexionActivity, e.message, Toast.LENGTH_LONG)
+                    Toast.makeText(this@ConnexionActivity, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
                         .show()
                 }
             }
@@ -208,7 +208,7 @@ class ConnexionActivity: AppCompatActivity() {
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@ConnexionActivity, e.message, Toast.LENGTH_LONG)
+                    Toast.makeText(this@ConnexionActivity, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
                         .show()
                 }
             }

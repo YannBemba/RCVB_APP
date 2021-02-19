@@ -39,6 +39,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.util.*
 
 class ProfilFragment: Fragment() {
 
@@ -62,8 +63,11 @@ class ProfilFragment: Fragment() {
 
         // Afficher les données de l'utilisateur
 
-        val userId = "VY1WcBLSjqVgZZ1lCYUF"
-        val userRef = utilCollectionsRef.document(userId)
+        val userId = utilCollectionsRef.document().id
+        val userRef = utilCollectionsRef.document()
+        val userQuery = utilCollectionsRef.whereEqualTo("id", 2).get()
+
+        //userQuery.
 
         userRef.addSnapshotListener { value, _ ->
             binding.nomProfil.text = value?.getString("nom")
@@ -76,8 +80,8 @@ class ProfilFragment: Fragment() {
         val btnDeconnecter = binding.btnDeconnexion
 
         btnNewProfil.setOnClickListener {
+            Toast.makeText(requireContext(), "UID  : $userId", Toast.LENGTH_LONG).show()
             updateUtil()
-
         }
 
         btnDeconnecter.setOnClickListener {
