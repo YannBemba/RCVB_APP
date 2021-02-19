@@ -30,7 +30,7 @@
     <string name="se_deconnecter">Se deconnecter</string>
     <string name="image_de_l_utilisateur">Image de l\'utilisateur</string>
     <string name="home">Home</string>
-    <string name="modifier">Modifier mon profil</string>
+    <string name="modifier">Modifier</string>
     <string name="boutique">Boutique</string>
     <string name="condition">Conditions générales d\'utilisation</string>
     <string name="a_propos">à propos de cette version</string>
@@ -55,6 +55,12 @@
     <string name="titre_de_l_article">Titre de l\'article</string>
     <string name="publie_le">Publié le</string>
     <string name="bouton_de_rechcerche">Bouton de rechcerche</string>
+    <string name="mon_profil">Mon profil</string>
+    <string name="description_notif">Description de la notif</string>
+    <string name="titre_notif">Titre de la notif</string>
+    <string name="notification_channel_id">myCanal</string>
+    <string name="notification_channel_title">myTitle</string>
+    <string name="notification_channel_desc">This a test canal</string>
 
 
 </resources>

@@ -2,21 +2,34 @@ package com.rcvb.rcvbapp.onboarding.fragments
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.*
+import com.google.firebase.firestore.core.FirestoreClient
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.installations.remote.TokenResult
 import com.google.firebase.ktx.Firebase
+import com.orhanobut.dialogplus.DialogPlus
+import com.orhanobut.dialogplus.DialogPlusBuilder
+import com.orhanobut.dialogplus.ViewHolder
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.FragmentProfilBinding
 import com.rcvb.rcvbapp.entites.FirestoreCollections
@@ -26,7 +39,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import java.lang.StringBuilder
 
 class ProfilFragment: Fragment() {
 
@@ -37,7 +49,8 @@ class ProfilFragment: Fragment() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    private val utilCollectionsRef = FirestoreCollections.FIRESTORE_UTILS
+    private val utilCollectionsRef = Firebase.firestore.collection("utilisateurs")
+    private val TAG = "ProfilFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,153 +60,136 @@ class ProfilFragment: Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        val btnNewProfil = binding.btnEnregistrerProfil
+        // Afficher les données de l'utilisateur
 
-        btnNewProfil.setOnClickListener {
-            //val oldUtil =
-            val newUtil = getNewUtilMap()
-            // Faire en sorte de récupérer les données de l'user concerné
-            //updateUtil()
+        val userId = "VY1WcBLSjqVgZZ1lCYUF"
+        val userRef = utilCollectionsRef.document(userId)
+
+        userRef.addSnapshotListener { value, _ ->
+            binding.nomProfil.text = value?.getString("nom")
+            binding.prenomProfil.text = value?.getString("prenom")
+            binding.emailProfil.text = value?.getString("email")
+            binding.telProfil.text = value?.getString("tel")
         }
 
+        val btnNewProfil = binding.btnModifier
         val btnDeconnecter = binding.btnDeconnexion
 
+        btnNewProfil.setOnClickListener {
+            updateUtil()
+
+        }
+
         btnDeconnecter.setOnClickListener {
-
-            // Material Alert Dialog
-            MaterialAlertDialogBuilder(requireContext())
-                    .setIcon(R.drawable.ic_logout)
-                    .setTitle("Déconnexion")
-                    .setMessage("Etes-vous sûr de vouloir vous déconnecter ?")
-                    .setBackground(resources.getDrawable(R.drawable.bg_message, null))
-                    .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
-                        // Déconnexion
-                        FirebaseAuth.getInstance().signOut()
-                        this.googleSignOut()
-                        findNavController().navigate(R.id.action_profilFragmentNav_to_mainActivity)
-                    })
-                    .setNegativeButton("Annuler", DialogInterface.OnClickListener { _, _ ->
-
-                    })
-                    .show()
-
-            //Ajouter l'équivalent du finish()
+            showDialogLogout()
         }
 
         return binding.root
+
     }
 
-    private fun getNomProfil(): String {
-        return binding.tilNomProfil.editText?.text.toString()
-    }
-    private fun getPreomProfil(): String {
-        return binding.tilPrenomProfil.editText?.text.toString()
-    }
-    private fun getEmailProfil(): String {
-        return binding.tilEmailProfil.editText?.text.toString()
-    }
-    private fun getTelProfil(): String {
-        return binding.tilTelProfil.editText?.text.toString()
-    }
-    private fun getMdpProfil(): String {
-        return binding.tilMdpProfil.editText?.text.toString()
+    private fun showDialogLogout() {
+        // Material Alert Dialog
+        MaterialAlertDialogBuilder(requireContext())
+            .setIcon(R.drawable.ic_logout)
+            .setTitle("Déconnexion")
+            .setMessage("Etes-vous sûr de vouloir vous déconnecter ?")
+            .setBackground(resources.getDrawable(R.drawable.bg_message, null))
+            .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+                // Déconnexion
+                FirebaseAuth.getInstance().signOut()
+                this.googleSignOut()
+                findNavController().navigate(R.id.action_profilFragmentNav_to_mainActivity)
+                requireActivity().finish()
+            })
+            .setNegativeButton("Annuler") { _, _ -> }
+            .show()
+
+        //Ajouter l'équivalent du finish()
     }
 
-    private fun getNewUtilMap(): Map<String, Any> {
-        val nomProfil = this.getNomProfil()
-        val prenomProfil = this.getPreomProfil()
-        val emailProfil = this.getEmailProfil()
-        val telProfil = this.getTelProfil()
-        val mdpProfil = this.getMdpProfil()
+    private fun updateUtil() {
+        val dialogPlus = DialogPlus.newDialog(requireContext())
+            .setContentHolder(ViewHolder(R.layout.dialog_profil))
+            .setExpanded(true, 1600)
+            .create()
 
-        val map = mutableMapOf<String, Any>()
+        dialogPlus.show()
 
-        if (nomProfil.isNotEmpty()) {
-            map["nom"] = nomProfil
-        } else {
-            binding.tilNomProfil.error = "Le nom est requis"
-            binding.tilNomProfil.requestFocus()
+        val myView = dialogPlus.holderView
+
+        val nomEditProfil: TextInputLayout = myView.findViewById(R.id.tilNomProfil)
+        val prenomEditProfil: TextInputLayout = myView.findViewById(R.id.tilPrenomProfil)
+        val emailEditProfil: TextInputLayout = myView.findViewById(R.id.tilEmailProfil)
+        val telEditProfil: TextInputLayout = myView.findViewById(R.id.tilTelProfil)
+        val btnEnregistrer: Button = myView.findViewById(R.id.btnEnregistrer)
+
+        val nom: CharSequence
+        val prenom: CharSequence
+        val email: CharSequence
+        val tel: CharSequence
+
+        nom = nomEditProfil.editText!!.text
+        prenom = prenomEditProfil.editText!!.text
+        email = emailEditProfil.editText!!.text
+        tel = telEditProfil.editText!!.text
+
+        if(nom.isEmpty()){
+            nomEditProfil.error = "Le nom est requis"
+            nomEditProfil.requestFocus()
+            return
         }
 
-        if (prenomProfil.isNotEmpty()) {
-            map["prenom"] = prenomProfil
-        } else {
-            binding.tilPrenomProfil.error = "Le prénom est requis"
-            binding.tilPrenomProfil.requestFocus()
+        if(prenom.isEmpty()){
+            prenomEditProfil.error = "Le prénom est requis"
+            prenomEditProfil.requestFocus()
+            return
         }
 
-        if (emailProfil.isNotEmpty()) {
-            map["email"] = emailProfil
-        } else {
-            binding.tilEmailProfil.error = "L'email est requis"
-            binding.tilEmailProfil.requestFocus()
+        if(email.isEmpty()){
+            emailEditProfil.error = "L'email est requis"
+            emailEditProfil.requestFocus()
+            return
         }
 
         // Renforcer la validation de l'email
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(emailProfil).matches()) {
-            binding.tilEmailProfil.error = "Veuillez saisir un email valide"
-            binding.tilEmailProfil.requestFocus()
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailEditProfil.error = "Veuillez saisir un email valide"
+            emailEditProfil.requestFocus()
+            return
         }
 
-        if (telProfil.isNotEmpty()) {
-            map["tel"] = telProfil
-        } else {
-            binding.tilTelProfil.error = "Le numéro de téléphone est requis"
-            binding.tilTelProfil.requestFocus()
+        if(tel.isEmpty()){
+            telEditProfil.error = "Le numéro de téléphone est requis"
+            telEditProfil.requestFocus()
+            return
         }
 
-        if(mdpProfil.isEmpty()){
-            binding.tilMdpProfil.error = "Le mdp est requis"
-            binding.tilMdpProfil.requestFocus()
-        } else {
-            map["mdp"] = mdpProfil
+        if(tel.length != 10){
+            telEditProfil.error = "Veuillez entrer un numéro valide"
+            telEditProfil.requestFocus()
+            return
         }
 
-        if(mdpProfil.length < 6) {
-            binding.tilMdpProfil.error = "Le mot de passe doit contenir plus de 6 caractères"
-            binding.tilMdpProfil.requestFocus()
+        btnEnregistrer.setOnClickListener {
+            val map = mutableMapOf<String, Any>(
+                "nom" to nom.toString(),
+                "prenom" to prenom.toString(),
+                "email" to email.toString(),
+                "tel" to tel.toString()
+            )
+
+            val userRef = utilCollectionsRef.document("MVhD58KqkEbzmOUK0iMy")
+            userRef.update(map)
+                .addOnSuccessListener { TODO("Not yet implemented") }
+
         }
 
-        return map
     }
 
-    private fun updateUtil(util: Utilisateur, newUtilMap: Map<String, Any>) =
-            CoroutineScope(Dispatchers.IO).launch {
-                val utilQuery = FirestoreCollections.FIRESTORE_UTILS
-                        .whereEqualTo("nom", util.nom)
-                        .whereEqualTo("prenom", util.prenom)
-                        .whereEqualTo("email", util.email)
-                        .whereEqualTo("tel", util.tel)
-                        .whereEqualTo("mdp", util.mdp)
-                        .get()
-                        .await()
-
-                if(utilQuery.documents.isNotEmpty()) {
-                    for(document in utilQuery) {
-                        try {
-                            utilCollectionsRef.document(document.id).set(
-                                    newUtilMap,
-                                    SetOptions.merge()
-                            ).await()
-                        } catch (e: Exception) {
-                            withContext(Dispatchers.Main) {
-                                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG)
-                                        .show()
-                            }
-                        }
-                    }
-                } else {
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(requireContext(), "Personne ne correspond à cette personnne dans la db", Toast.LENGTH_LONG)
-                                .show()
-                    }
-                }
-            }
-
-
-
     private fun googleSignOut(){
+
         mAuth.signOut()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -203,6 +199,8 @@ class ProfilFragment: Fragment() {
 
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
         googleSignInClient.signOut()
+
+        requireActivity().finish()
 
     }
 }

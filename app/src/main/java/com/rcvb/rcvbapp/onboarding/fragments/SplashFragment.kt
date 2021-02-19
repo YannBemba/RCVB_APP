@@ -10,15 +10,14 @@ import androidx.navigation.fragment.findNavController
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.FragmentSpashBinding
 
-
 class SplashFragment : Fragment() {
 
     private var _binding: FragmentSpashBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSpashBinding.inflate(layoutInflater)
 

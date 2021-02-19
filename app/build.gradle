@@ -51,11 +51,12 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-auth:20.0.2'
     implementation 'com.google.firebase:firebase-database:19.6.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:22.0.2'
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.1.0'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
     implementation 'com.google.firebase:firebase-messaging-ktx:21.0.1'
     implementation 'com.google.firebase:firebase-messaging:21.0.1'
-    testImplementation 'junit:junit:4.13.1'
+    implementation 'com.google.firebase:firebase-messaging-directboot:21.0.1'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
@@ -78,7 +79,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
     // Lifecycles
-    def lifecycle_version = "2.2.0"
+    def lifecycle_version = "2.3.0"
     def arch_version = "2.1.0"
 
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
@@ -121,8 +122,8 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
     kapt 'com.github.bumptech.glide:annotations:4.11.0'
 
-    //Picasso
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    // DialogPlus
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
 
 
 }

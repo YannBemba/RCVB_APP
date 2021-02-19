@@ -7,32 +7,41 @@
     android:background="@color/bg_white"
     tools:context=".RCVBAppActivity">
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/tv_dark_blue"
-        android:fitsSystemWindows="true"
-        app:labelVisibilityMode="auto"
-        app:itemIconTint="@color/bg_white"
-        app:itemRippleColor="@color/bg_bluesky"
-        app:itemTextColor="@color/bg_white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu"/>
-
     <fragment
         android:id="@+id/fragment_nav"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linear_bottom"
         app:navGraph="@navigation/bottomappbar_nav" />
+
+    <LinearLayout
+        android:id="@+id/linear_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tv_dark_blue"
+            android:layout_gravity="bottom"
+            app:itemIconTint="@color/bg_white"
+            app:itemRippleColor="@color/bg_bluesky"
+            app:itemTextColor="@color/bg_white"
+            app:labelVisibilityMode="auto"
+            app:menu="@menu/bottom_menu" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

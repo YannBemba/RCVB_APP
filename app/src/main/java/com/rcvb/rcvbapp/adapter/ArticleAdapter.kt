@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -48,11 +49,14 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         holder.description = model.description
         "Publié le ${model.datePublication}".also { holder.datePub.text = it }
 
+        holder.imgCommentaire.setOnClickListener {
+            Toast.makeText(holder.itemView.context, "Pas encore disponible", Toast.LENGTH_LONG)
+                    .show()
+        }
+
         Log.d(TAG, "Url image = ${model.url} ")
 
         // Conversion du TimeStamp en String
-
-        //holder.datePub.text
 
         Glide.with(holder.itemView.context)
                 .load(model.url)
@@ -76,6 +80,9 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         holder.imgPartager.setOnClickListener {
             val shareIntent = Intent().apply {
                 this.action = Intent.ACTION_SEND
+                this.putExtra(Intent.EXTRA_TEXT, model.datePublication)
+                this.putExtra(Intent.EXTRA_TEXT, model.categorie)
+                this.putExtra(Intent.EXTRA_TEXT, model.titre)
                 this.putExtra(Intent.EXTRA_TEXT, model.description)
                 this.type = "text/plain"
             }
@@ -83,5 +90,6 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         }
 
     }
+
 
 }

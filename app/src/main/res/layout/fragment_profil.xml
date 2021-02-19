@@ -4,224 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_white"
+    android:background="@color/dark"
     tools:context=".onboarding.fragments.ProfilFragment">
 
-    <ScrollView
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/ic_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/bg_white" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="30dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/bg_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/nomProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:maxLines="1"
+        android:text="@string/nom"
+        android:textColor="@color/bg_white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+    <TextView
+        android:id="@+id/prenomProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:maxLines="1"
+        android:text="@string/prenom"
+        android:textColor="@color/bg_white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomProfil" />
+
+    <TextView
+        android:id="@+id/emailProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:maxLines="1"
+        android:text="@string/email"
+        android:textColor="@color/bg_white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prenomProfil" />
+
+    <TextView
+        android:id="@+id/telProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:maxLines="1"
+        android:text="@string/tel"
+        android:textColor="@color/bg_white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailProfil" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbarStyle="insideOverlay">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telProfil"
+        app:layout_constraintVertical_bias="0.385">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/btnModifier"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:background="@color/dark"
+            android:src="@drawable/ic_edit" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="@string/profil"
-                android:textColor="@color/dark"
-                android:textSize="36sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/btnDeconnexion"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:background="@color/dark"
+            android:src="@drawable/ic_logout"
+            app:tint="@color/bg_white"/>
 
-            <View
-                android:id="@+id/view5"
-                android:layout_width="30dp"
-                android:layout_height="5dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/dark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view5"
-                app:layout_constraintVertical_bias="0.12">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilNomProfil"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="50dp"
-                    android:hint="@string/nom"
-                    android:textColorHint="@color/bg_lightgrey"
-                    app:boxStrokeColor="@color/bg_dark_blue"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/bg_dark_blue"
-                    app:startIconDrawable="@drawable/ic_account_box"
-                    app:startIconTint="@color/bg_lightgrey">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textColorHint="@color/bg_dark_blue" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilPrenomProfil"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="50dp"
-                    android:hint="@string/prenom"
-                    android:textColorHint="@color/bg_lightgrey"
-                    app:boxStrokeColor="@color/bg_dark_blue"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/bg_dark_blue"
-                    app:startIconDrawable="@drawable/ic_account_box"
-                    app:startIconTint="@color/bg_lightgrey">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textColor="@color/bg_dark_blue" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilEmailProfil"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="50dp"
-                    android:hint="@string/email"
-                    android:textColorHint="@color/bg_lightgrey"
-                    app:boxStrokeColor="@color/bg_dark_blue"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/bg_dark_blue"
-                    app:startIconDrawable="@drawable/ic_email"
-                    app:startIconTint="@color/bg_lightgrey">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/bg_dark_blue" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilTelProfil"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="50dp"
-                    android:hint="@string/tel"
-                    android:textColorHint="@color/bg_lightgrey"
-                    app:boxStrokeColor="@color/bg_dark_blue"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/bg_dark_blue"
-                    app:startIconDrawable="@drawable/ic_phone"
-                    app:startIconTint="@color/bg_lightgrey">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:textColor="@color/bg_dark_blue" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilMdpProfil"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="50dp"
-                    android:hint="@string/mdp"
-                    android:textColorHint="@color/bg_lightgrey"
-                    app:boxStrokeColor="@color/bg_dark_blue"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/bg_dark_blue"
-                    app:startIconDrawable="@drawable/ic_lock"
-                    app:startIconTint="@color/bg_lightgrey">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:textColor="@color/bg_dark_blue" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <Button
-                    android:id="@+id/btnEnregistrerProfil"
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/bg_dark_blue"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/enregistrer"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-                <Button
-                    android:id="@+id/btnDeconnexion"
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:backgroundTint="@color/bg_dark_blue"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/deconnexion"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnEnregistrerProfil"
-                    app:layout_constraintVertical_bias="0.164" />
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

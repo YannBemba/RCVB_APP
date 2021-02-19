@@ -3,6 +3,7 @@ package com.rcvb.rcvbapp.forms
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
@@ -17,6 +18,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import java.util.*
 import kotlin.Exception
+import kotlin.collections.HashMap
 
 class InscriptionActivity : AppCompatActivity() {
 
@@ -25,12 +27,14 @@ class InscriptionActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
 
     private val utilCollectionRef = Firebase.firestore.collection("utilisateurs")
-//  private val utilCollectionRef = FirestoreCollections.FIRESTORE_UTILS
+
     private lateinit var tilNomUtils: TextInputLayout
     private lateinit var tilPrenomUtils: TextInputLayout
     private lateinit var tilEmailUtils: TextInputLayout
     private lateinit var tilTelUtils: TextInputLayout
     private lateinit var tilMdpUtils: TextInputLayout
+
+    private val TAG = "InscriptionActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +96,12 @@ class InscriptionActivity : AppCompatActivity() {
             return
         }
 
+        if(tel.length != 10){
+            tilTelUtils.error = "Veuillez entrer un numéro valide"
+            tilTelUtils.requestFocus()
+            return
+        }
+
         if(mdp.isEmpty()){
             tilMdpUtils.error = "Le mdp est requis"
             tilMdpUtils.requestFocus()
@@ -106,7 +116,6 @@ class InscriptionActivity : AppCompatActivity() {
         // Insertion d'un utilisateur
         val util = Utilisateur(nom, prenom, email, tel, mdp)
         createUtil(util)
-
         firebaseCreateUser(email, mdp)
 
     }
@@ -121,7 +130,7 @@ class InscriptionActivity : AppCompatActivity() {
             } catch(e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@InscriptionActivity, e.message, Toast.LENGTH_LONG)
-                            .show()
+                        .show()
                 }
             }
         }
@@ -130,10 +139,9 @@ class InscriptionActivity : AppCompatActivity() {
     private fun checkLoggedInState() {
         if(mAuth.currentUser == null) {
             Toast.makeText(this, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
-                    .show()
+                .show()
         } else {
-
-            val intent = Intent(this, ConnexionActivity::class.java)
+            val intent = Intent(this@InscriptionActivity, ConnexionActivity::class.java)
             startActivity(intent)
         }
     }
@@ -142,13 +150,14 @@ class InscriptionActivity : AppCompatActivity() {
         try {
             utilCollectionRef.add(util).await()
             withContext(Dispatchers.Main) {
-                Toast.makeText(this@InscriptionActivity, "Utilisateur ajouté à Firestore", Toast.LENGTH_LONG)
-                        .show()
+                Toast.makeText(this@InscriptionActivity, "Connexion réussie", Toast.LENGTH_LONG)
+                    .show()
             }
+            Log.d(TAG, "Utilisateur ajouté à Firestore")
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@InscriptionActivity, e.message, Toast.LENGTH_LONG)
-                        .show()
+                    .show()
             }
         }
     }

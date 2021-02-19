@@ -2,6 +2,7 @@ package com.rcvb.rcvbapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.rcvb.rcvbapp.databinding.ActivityRcvbappBinding
@@ -16,7 +17,7 @@ class RCVBAppActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val bottomNavigationView = binding.bottomNavigationView
-        val navController = findNavController(R.id.fragment_nav)
+        val navController = Navigation.findNavController(this, R.id.fragment_nav)
 
         bottomNavigationView.setupWithNavController(navController)
 

@@ -1,8 +1,9 @@
 package com.rcvb.rcvbapp.forms
 
-import android.content.DialogInterface
+
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.RCVBAppActivity
 import com.rcvb.rcvbapp.databinding.ActivityConnexionBinding
 import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
 import java.lang.Exception
 
 class ConnexionActivity: AppCompatActivity() {
@@ -30,6 +32,8 @@ class ConnexionActivity: AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+
+    private val TAG = "ConnexionActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,7 +102,6 @@ class ConnexionActivity: AppCompatActivity() {
         }
 
         connecterUtils(email, mdp)
-        finish()
 
     }
 
@@ -106,14 +109,14 @@ class ConnexionActivity: AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                mAuth.signInWithEmailAndPassword(email, mdp)
+                mAuth.signInWithEmailAndPassword(email, mdp).await()
                 withContext(Dispatchers.Main) {
                     checkUser()
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@ConnexionActivity, e.message, Toast.LENGTH_LONG)
-                            .show()
+                        .show()
                 }
             }
         }
@@ -123,7 +126,7 @@ class ConnexionActivity: AppCompatActivity() {
     private fun checkUser() {
         if(mAuth.currentUser == null) {
             Toast.makeText(this@ConnexionActivity, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
-                    .show()
+                .show()
         } else {
             sendEmailVerification()
         }
@@ -133,19 +136,17 @@ class ConnexionActivity: AppCompatActivity() {
 
         val util = FirebaseAuth.getInstance().currentUser!!
 
-        if(util.isEmailVerified) {
-            startActivity(Intent(this@ConnexionActivity, RCVBAppActivity::class.java))
-            finish()
-        } else {
+        if (!util.isEmailVerified) {
             util.sendEmailVerification()
             MaterialAlertDialogBuilder(this)
-                    .setIcon(R.drawable.ic_email_check)
-                    .setTitle("Confirmer votre compte")
-                    .setMessage("Vérifier votre boîte mail pour confirmer votre compte")
-                    .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
-
-                    })
-                    .show()
+                .setIcon(R.drawable.ic_email_check)
+                .setTitle("Confirmer votre compte")
+                .setMessage("Vérifier votre boîte mail pour confirmer votre compte")
+                .setPositiveButton("OK") { _, _ -> }
+                .show()
+        } else {
+            startActivity(Intent(this@ConnexionActivity, RCVBAppActivity::class.java))
+            finish()
         }
 
     }
@@ -154,9 +155,9 @@ class ConnexionActivity: AppCompatActivity() {
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
@@ -169,10 +170,10 @@ class ConnexionActivity: AppCompatActivity() {
 
     private fun signIn() {
         val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .requestProfile()
-                .build()
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .requestProfile()
+            .build()
 
         val signInClient = GoogleSignIn.getClient(this, options)
         signInClient.signInIntent.also {
@@ -197,10 +198,10 @@ class ConnexionActivity: AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                mAuth.signInWithCredential(credentials)
+                mAuth.signInWithCredential(credentials).await()
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@ConnexionActivity, "Connexion réussie", Toast.LENGTH_LONG)
-                            .show()
+                        .show()
                     val intent = Intent(this@ConnexionActivity, RCVBAppActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -208,7 +209,7 @@ class ConnexionActivity: AppCompatActivity() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@ConnexionActivity, e.message, Toast.LENGTH_LONG)
-                            .show()
+                        .show()
                 }
             }
         }

@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 class FirestoreCollections {
 
     companion object {
-        val FIRESTORE_DATABASE = FirebaseFirestore.getInstance()
         val FIRESTORE_UTILS = Firebase.firestore.collection("utilisateurs")
         val FIRESTORE_ARTICLES = Firebase.firestore.collection("articles")
 

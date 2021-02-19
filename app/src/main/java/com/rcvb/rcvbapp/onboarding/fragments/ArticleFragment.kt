@@ -1,24 +1,19 @@
 package com.rcvb.rcvbapp.onboarding.fragments
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.text.isDigitsOnly
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rcvb.rcvbapp.adapter.ArticleAdapter
-import com.rcvb.rcvbapp.adapter.RechercheAdapter
 import com.rcvb.rcvbapp.databinding.FragmentArticleBinding
 import com.rcvb.rcvbapp.entites.Article
-import com.rcvb.rcvbapp.entites.FirestoreCollections
+import java.util.*
 
 class ArticleFragment : Fragment() {
 
@@ -28,7 +23,11 @@ class ArticleFragment : Fragment() {
     private val articleCollectionRef = Firebase.firestore.collection("articles")
 
     private var articleAdapter: ArticleAdapter? = null
-    
+
+    private var titreNotif = ""
+    private var messageNotif = ""
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,8 +38,8 @@ class ArticleFragment : Fragment() {
         val btnRechercher = binding.btnRechercher
 
         btnRechercher.setOnClickListener {
-            if(edRecherche.text.toString().isNotBlank() || edRecherche.text.toString().isNotEmpty()
-                    || edRecherche.text.toString().isDigitsOnly()){
+            if(edRecherche.text.toString().isNotBlank()
+                    || edRecherche.text.toString().isNotEmpty()){
                 firestoreRecherche()
             }
         }
@@ -51,9 +50,9 @@ class ArticleFragment : Fragment() {
 
     private fun firestoreRecherche() {
 
-        val firstChar = binding.edRecherche.text.first().toString().toLowerCase()
+        val recherche = binding.edRecherche.text.toString().toUpperCase().first().toString() //toString().toUpperCase(Locale.ROOT)
 
-        val articleQuery: Query = articleCollectionRef.orderBy("titre").startAt(firstChar).endAt(firstChar + "\uf8ff")
+        val articleQuery: Query = articleCollectionRef.orderBy("titre").startAt(recherche).endAt(recherche + "\uf8ff")
         val articleRecyclerView = binding.articleRecyclerview
 
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<Article> = FirestoreRecyclerOptions.Builder<Article>()
@@ -73,8 +72,19 @@ class ArticleFragment : Fragment() {
         val articleRecyclerView = binding.articleRecyclerview
 
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<Article> = FirestoreRecyclerOptions.Builder<Article>()
-                .setQuery(articleQuery, Article::class.java)
-                .build()
+            .setQuery(articleQuery, Article::class.java)
+            .build()
+
+        if(requireActivity().intent.extras != null) {
+            for(key in requireActivity().intent.extras!!.keySet()){
+                if(key == "titre"){
+                    titreNotif = requireActivity().intent.extras!!.getString("titre", "")
+                }
+                if(key == "message"){
+                    messageNotif = requireActivity().intent.extras!!.getString("message", "")
+                }
+            }
+        }
 
         articleAdapter = ArticleAdapter(firestoreRecyclerOptions)
 
