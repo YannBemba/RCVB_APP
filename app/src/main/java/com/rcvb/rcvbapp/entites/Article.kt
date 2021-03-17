@@ -1,9 +1,7 @@
 package com.rcvb.rcvbapp.entites
 
-
-
 data class Article(
-    var id: Int = 0,
+    var id: String = "",
     var categorie: String = "",
     var titre: String = "",
     var url: String = "",
@@ -12,6 +10,7 @@ data class Article(
     var isLike: Boolean = false,
     var commentaire: String = ""
 ){
-    constructor() : this(0,"", "", "", "", "", false, "")
+    constructor() : this("","", "", "", "", "", false, "")
+
     constructor(titre: String) : this()
 }

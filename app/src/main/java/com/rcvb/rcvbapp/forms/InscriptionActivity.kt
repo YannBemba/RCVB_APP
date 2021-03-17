@@ -1,4 +1,4 @@
-package com.rcvb.rcvbapp.forms
+ package com.rcvb.rcvbapp.forms
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +16,14 @@ import com.rcvb.rcvbapp.entites.FirestoreCollections
 import com.rcvb.rcvbapp.entites.Utilisateur
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
+import java.math.BigInteger
+import java.security.MessageDigest
 import java.util.*
 import kotlin.Exception
 import kotlin.collections.HashMap
 
 class InscriptionActivity : AppCompatActivity() {
-
+ 
     private lateinit var binding: ActivityInscriptionBinding
 
     private lateinit var mAuth: FirebaseAuth
@@ -114,7 +116,8 @@ class InscriptionActivity : AppCompatActivity() {
             return
         }
         // Insertion d'un utilisateur
-        val util = Utilisateur(nom, prenom, email, tel, mdp)
+        var util = Utilisateur(0, nom, prenom, email, tel, mdp)
+        util.id 
         createUtil(util)
         firebaseCreateUser(email, mdp)
 
@@ -161,5 +164,6 @@ class InscriptionActivity : AppCompatActivity() {
             }
         }
     }
+
 
 }

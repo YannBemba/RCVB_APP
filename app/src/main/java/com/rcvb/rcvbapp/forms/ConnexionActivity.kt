@@ -5,6 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -18,6 +21,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.RCVBAppActivity
 import com.rcvb.rcvbapp.databinding.ActivityConnexionBinding
+import com.rcvb.rcvbapp.databinding.CustomToastBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
@@ -203,7 +207,8 @@ class ConnexionActivity: AppCompatActivity() {
                     Toast.makeText(this@ConnexionActivity, "Connexion réussie", Toast.LENGTH_LONG)
                         .show()
                     val intent = Intent(this@ConnexionActivity, RCVBAppActivity::class.java)
-                    startActivity(intent)
+                    // Custom toast
+                    showDialog()
                     finish()
                 }
             } catch (e: Exception) {
@@ -214,4 +219,23 @@ class ConnexionActivity: AppCompatActivity() {
             }
         }
     }
+
+    private fun showDialog() {
+        val inflater = layoutInflater
+        val customBinding: CustomToastBinding = CustomToastBinding.inflate(layoutInflater)
+        val layout = inflater.inflate(R.layout.custom_toast, customBinding.toastLayout as ViewGroup)
+
+        val image = customBinding.imageAlert
+        image.setImageResource(R.drawable.ic_laugh)
+        val message = customBinding.tvAlert
+        message.text = "Bienvenue"
+
+        val toast = Toast(applicationContext)
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+        toast.duration = Toast.LENGTH_SHORT
+        toast.view = layout
+
+        toast.show()
+    }
+
 }

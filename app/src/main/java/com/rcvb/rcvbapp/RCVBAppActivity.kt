@@ -1,5 +1,6 @@
 package com.rcvb.rcvbapp
 
+import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
@@ -22,4 +23,6 @@ class RCVBAppActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)
 
     }
+
+
 }

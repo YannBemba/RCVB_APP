@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/view_round"
-    android:backgroundTint="#374298"
+    android:backgroundTint="#5B6DF9"
     tools:context=".onboarding.screens.FirstScreen">
 
     <TextView
@@ -51,6 +51,7 @@
         <View
             android:layout_width="50dp"
             android:layout_height="2dp"
+            android:layout_marginTop="15dp"
             android:background="@color/bg_white"/>
 
     </LinearLayout>

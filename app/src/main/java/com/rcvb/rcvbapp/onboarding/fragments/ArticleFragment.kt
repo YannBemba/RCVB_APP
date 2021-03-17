@@ -11,6 +11,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rcvb.rcvbapp.adapter.ArticleAdapter
+import com.rcvb.rcvbapp.adapter.ArticleItemDecoration
 import com.rcvb.rcvbapp.databinding.FragmentArticleBinding
 import com.rcvb.rcvbapp.entites.Article
 import java.util.*
@@ -90,6 +91,8 @@ class ArticleFragment : Fragment() {
 
         articleRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         articleRecyclerView.adapter = articleAdapter
+
+        articleRecyclerView.addItemDecoration(ArticleItemDecoration())
 
     }
 

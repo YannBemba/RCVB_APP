@@ -64,16 +64,17 @@ class ProfilFragment: Fragment() {
         // Afficher les données de l'utilisateur
 
         val userId = utilCollectionsRef.document().id
-        val userRef = utilCollectionsRef.document()
-        val userQuery = utilCollectionsRef.whereEqualTo("id", 2).get()
+        val userRef = utilCollectionsRef.document(userId)
+        val userQuery = utilCollectionsRef.whereEqualTo("id", 2)
+                .get()
 
-        //userQuery.
-
-        userRef.addSnapshotListener { value, _ ->
-            binding.nomProfil.text = value?.getString("nom")
-            binding.prenomProfil.text = value?.getString("prenom")
-            binding.emailProfil.text = value?.getString("email")
-            binding.telProfil.text = value?.getString("tel")
+        userRef.addSnapshotListener { querySnapshot, error ->
+            userQuery.let {
+                binding.nomProfil.text = querySnapshot?.getString("nom")
+                binding.prenomProfil.text = querySnapshot?.getString("prenom")
+                binding.emailProfil.text = querySnapshot?.getString("email")
+                binding.telProfil.text = querySnapshot?.getString("tel")
+            }
         }
 
         val btnNewProfil = binding.btnModifier
