@@ -39,7 +39,7 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
         Log.d(TAG, "Vous venez de recevoir une notification : $message ")
 
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_favorite)
+            .setSmallIcon(R.drawable.ic_liked)
             .setContentTitle("Nouvel article")
             .setContentText(message)
 

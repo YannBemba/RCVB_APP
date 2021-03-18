@@ -7,7 +7,7 @@ data class Article(
     var url: String = "",
     var description: String = "",
     var datePublication: String,
-    var isLike: Boolean = false,
+    var liked: Boolean = false,
     var commentaire: String = ""
 ){
     constructor() : this("","", "", "", "", "", false, "")

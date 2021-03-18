@@ -103,7 +103,7 @@
             android:contentDescription="@string/like"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/ic_favorite" />
+            android:src="@drawable/ic_unliked" />
 
         <ImageView
             android:id="@+id/imgPartager"
