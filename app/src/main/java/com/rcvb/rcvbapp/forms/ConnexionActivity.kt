@@ -207,9 +207,8 @@ class ConnexionActivity: AppCompatActivity() {
                     Toast.makeText(this@ConnexionActivity, "Connexion réussie", Toast.LENGTH_LONG)
                         .show()
                     val intent = Intent(this@ConnexionActivity, RCVBAppActivity::class.java)
-                    // Custom toast
-                    showDialog()
-                    finish()
+                    startActivity(intent)
+                    this@ConnexionActivity.finish()
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
@@ -220,22 +219,6 @@ class ConnexionActivity: AppCompatActivity() {
         }
     }
 
-    private fun showDialog() {
-        val inflater = layoutInflater
-        val customBinding: CustomToastBinding = CustomToastBinding.inflate(layoutInflater)
-        val layout = inflater.inflate(R.layout.custom_toast, customBinding.toastLayout as ViewGroup)
 
-        val image = customBinding.imageAlert
-        image.setImageResource(R.drawable.ic_laugh)
-        val message = customBinding.tvAlert
-        message.text = "Bienvenue"
-
-        val toast = Toast(applicationContext)
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-        toast.duration = Toast.LENGTH_SHORT
-        toast.view = layout
-
-        toast.show()
-    }
 
 }
