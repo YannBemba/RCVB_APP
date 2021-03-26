@@ -48,6 +48,8 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int, model: Article) {
 
+        val likeButton = holder.imgLike
+
         holder.id += 1
         holder.categorie.text = model.categorie
         holder.titre.text = model.titre
@@ -70,10 +72,20 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
 
         // Vérifier si l'article a été liké
 
-        if(model.liked) {
-            holder.imgLike.setImageResource(R.drawable.ic_unliked)
+        /*if(!model.liked) {
+            likeButton.setImageResource(R.drawable.ic_unliked)
         } else {
-            holder.imgLike.setImageResource(R.drawable.ic_liked)
+            likeButton.setImageResource(R.drawable.ic_liked)
+        }
+        */
+        
+        likeButton.setOnClickListener {
+            if(!model.liked) {
+                likeButton.setImageResource(R.drawable.ic_unliked)
+            } else {
+                likeButton.setImageResource(R.drawable.ic_liked)
+            }
+            model.liked = !model.liked
         }
 
         holder.item_article.setOnClickListener {

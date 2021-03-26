@@ -10,6 +10,7 @@
     android:background="@drawable/background_email_alert"
     android:backgroundTint="@color/bg_light_dark"
     android:layout_margin="5dp"
+    android:layout_marginBottom="10dp"
     android:layout_height="186dp">
 
     <TextView
@@ -122,7 +123,8 @@
             android:contentDescription="@string/partager"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/ic_chat" />
+            android:src="@drawable/ic_chat"
+            app:tint="@color/bg_white" />
 
     </LinearLayout>
 

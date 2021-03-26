@@ -1,4 +1,4 @@
- package com.rcvb.rcvbapp.forms
+package com.rcvb.rcvbapp.forms
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,24 +6,21 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rcvb.rcvbapp.R
 import com.rcvb.rcvbapp.databinding.ActivityInscriptionBinding
-import com.rcvb.rcvbapp.entites.FirestoreCollections
 import com.rcvb.rcvbapp.entites.Utilisateur
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
-import java.math.BigInteger
-import java.security.MessageDigest
 import java.util.*
 import kotlin.Exception
-import kotlin.collections.HashMap
 
 class InscriptionActivity : AppCompatActivity() {
- 
+
     private lateinit var binding: ActivityInscriptionBinding
 
     private lateinit var mAuth: FirebaseAuth
@@ -116,8 +113,8 @@ class InscriptionActivity : AppCompatActivity() {
             return
         }
         // Insertion d'un utilisateur
-        var util = Utilisateur(0, nom, prenom, email, tel, mdp)
-        util.id 
+        val util = Utilisateur(0, nom, prenom, email, tel, mdp)
+        util.id
         createUtil(util)
         firebaseCreateUser(email, mdp)
 
@@ -145,6 +142,7 @@ class InscriptionActivity : AppCompatActivity() {
                 .show()
         } else {
             val intent = Intent(this@InscriptionActivity, ConnexionActivity::class.java)
+            resetInput()
             startActivity(intent)
         }
     }
@@ -163,6 +161,25 @@ class InscriptionActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
+
+    private fun resetInput() {
+        tilNomUtils.editText?.doOnTextChanged { text, start, before, count ->
+
+        }
+        tilPrenomUtils.editText?.doOnTextChanged { text, start, before, count ->
+
+        }
+        tilEmailUtils.editText?.doOnTextChanged { text, start, before, count ->
+
+        }
+        tilTelUtils.editText?.doOnTextChanged { text, start, before, count ->
+
+        }
+        tilMdpUtils.editText?.doOnTextChanged { text, start, before, count ->
+
+        }
+
     }
 
 

@@ -101,6 +101,9 @@
             android:layout_marginTop="50dp"
             android:hint="@string/email"
             android:textColorHint="@color/bg_lightgrey"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:counterTextColor="@color/bg_google"
             app:boxStrokeColor="@color/bg_dark_blue"
             app:boxStrokeWidthFocused="2dp"
             app:hintTextColor="@color/bg_dark_blue"
@@ -111,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:maxLength="70"
+                android:maxLength="50"
                 android:textColor="@color/bg_dark_blue" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -124,6 +127,8 @@
             android:layout_margin="15dp"
             android:layout_marginTop="50dp"
             android:hint="@string/tel"
+            app:prefixText="+33"
+            app:prefixTextColor="@color/bg_dark_blue"
             android:textColorHint="@color/bg_lightgrey"
             app:boxStrokeColor="@color/bg_dark_blue"
             app:boxStrokeWidthFocused="2dp"
@@ -148,6 +153,7 @@
             android:layout_margin="15dp"
             android:layout_marginTop="50dp"
             android:hint="@string/mdp"
+            app:counterEnabled="true"
             app:counterMaxLength="30"
             android:textColorHint="@color/bg_lightgrey"
             app:boxStrokeColor="@color/bg_dark_blue"
@@ -181,6 +187,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

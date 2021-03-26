@@ -56,6 +56,9 @@
             app:boxStrokeColor="@color/bg_white"
             app:boxStrokeWidthFocused="2dp"
             app:hintTextColor="@color/bg_lightgrey"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:counterTextColor="@color/bg_google"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view4"
@@ -67,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/bg_white"
-                android:maxLength="70"
+                android:maxLength="50"
                 android:textColorHint="@color/bg_white" />
 
         </com.google.android.material.textfield.TextInputLayout>
