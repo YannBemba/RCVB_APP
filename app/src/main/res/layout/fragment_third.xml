@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/view_round"
-    android:backgroundTint="#070011"
+    android:background="@drawable/view_round_right"
+    android:backgroundTint="@color/bg_white"
     tools:context=".onboarding.screens.ThirdScreen">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginEnd="36dp"
         android:fontFamily="@font/cabin_bold"
         android:text="@string/third_part"
-        android:textColor="@color/bg_white"
+        android:textColor="@color/dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,14 +45,14 @@
             android:padding="10dp"
             android:text="@string/third_presentation"
             android:textAlignment="center"
-            android:textColor="@color/bg_white"
-            android:textSize="18sp" />
+            android:textColor="@color/dark"
+            android:textSize="20sp" />
 
         <View
             android:layout_width="50dp"
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
-            android:background="@color/bg_white"/>
+            android:background="@color/dark"/>
 
     </LinearLayout>
 

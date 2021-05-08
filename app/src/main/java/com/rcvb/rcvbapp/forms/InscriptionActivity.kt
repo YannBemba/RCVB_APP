@@ -114,7 +114,6 @@ class InscriptionActivity : AppCompatActivity() {
         }
         // Insertion d'un utilisateur
         val util = Utilisateur(0, nom, prenom, email, tel, mdp)
-        util.id
         createUtil(util)
         firebaseCreateUser(email, mdp)
 
@@ -164,23 +163,11 @@ class InscriptionActivity : AppCompatActivity() {
     }
 
     private fun resetInput() {
-        tilNomUtils.editText?.doOnTextChanged { text, start, before, count ->
-
-        }
-        tilPrenomUtils.editText?.doOnTextChanged { text, start, before, count ->
-
-        }
-        tilEmailUtils.editText?.doOnTextChanged { text, start, before, count ->
-
-        }
-        tilTelUtils.editText?.doOnTextChanged { text, start, before, count ->
-
-        }
-        tilMdpUtils.editText?.doOnTextChanged { text, start, before, count ->
-
-        }
-
+        tilNomUtils.editText?.text!!.isEmpty()
+        tilPrenomUtils.editText?.text!!.isEmpty()
+        tilTelUtils.editText?.text!!.isEmpty()
+        tilEmailUtils.editText?.text!!.isEmpty()
+        tilMdpUtils.editText?.text!!.isEmpty()
     }
-
 
 }

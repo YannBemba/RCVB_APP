@@ -79,7 +79,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
     // Lifecycles
-    def lifecycle_version = "2.3.0"
+    def lifecycle_version = "2.3.1"
     def arch_version = "2.1.0"
 
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
@@ -100,7 +100,7 @@ dependencies {
     implementation "androidx.drawerlayout:drawerlayout:1.1.1"
 
     // Navigation component
-    def nav_version = "2.3.3"
+    def nav_version = "2.3.5"
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
@@ -114,13 +114,13 @@ dependencies {
     implementation 'com.shobhitpuri.custombuttons:google-signin:1.1.0'
 
     // Lottie files
-    def lottieVersion = "3.5.0"
+    def lottieVersion = "3.6.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
     // Glide
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-    kapt 'com.github.bumptech.glide:annotations:4.11.0'
+    kapt 'com.github.bumptech.glide:annotations:4.12.0'
 
     // DialogPlus
     implementation 'com.orhanobut:dialogplus:1.11@aar'

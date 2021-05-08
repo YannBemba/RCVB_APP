@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
+    android:background="@color/tv_dark_blue"
     tools:context=".onboarding.viewpager.ViewPagerFragment">
 
 
@@ -31,15 +31,24 @@
             android:id="@+id/vp_inscription"
             style="@style/ButtonConnexion"
             android:layout_marginEnd="20dp"
+            android:fontFamily="@font/poppins_semibold"
             android:text="@string/inscription"
-            app:cornerRadius="30dp"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/dark_blue"
+            app:elevation="10dp"
             />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/vp_connexion"
             style="@style/ButtonConnexion"
             android:text="@string/connexion"
-            app:cornerRadius="30dp"/>
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_semibold"
+            app:strokeColor="@color/dark_blue"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"/>
 
     </LinearLayout>
 

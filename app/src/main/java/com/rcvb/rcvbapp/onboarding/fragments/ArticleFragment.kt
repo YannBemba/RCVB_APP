@@ -40,7 +40,7 @@ class ArticleFragment : Fragment() {
 
         btnRechercher.setOnClickListener {
             if(edRecherche.text.toString().isNotBlank()
-                    || edRecherche.text.toString().isNotEmpty()){
+                || edRecherche.text.toString().isNotEmpty()){
                 firestoreRecherche()
             }
         }
@@ -57,8 +57,8 @@ class ArticleFragment : Fragment() {
         val articleRecyclerView = binding.articleRecyclerview
 
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<Article> = FirestoreRecyclerOptions.Builder<Article>()
-                .setQuery(articleQuery, Article::class.java)
-                .build()
+            .setQuery(articleQuery, Article::class.java)
+            .build()
 
         articleAdapter = ArticleAdapter(firestoreRecyclerOptions)
 
@@ -105,5 +105,11 @@ class ArticleFragment : Fragment() {
         super.onDestroy()
         articleAdapter?.stopListening()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 
 }
