@@ -35,30 +35,30 @@
         android:id="@id/linear_connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/btn_connexion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view3"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@id/view3">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmailConnexion"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="84dp"
             android:hint="@string/email"
             android:textColorHint="@color/bg_lightgrey"
             app:boxStrokeColor="@color/bg_white"
+            android:padding="10dp"
+            android:layout_marginTop="40dp"
             app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
             app:hintTextColor="@color/bg_lightgrey"
-            app:counterEnabled="true"
-            app:counterMaxLength="50"
-            app:counterTextColor="@color/bg_google"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view4"
@@ -69,8 +69,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/bg_white"
                 android:maxLength="50"
+                android:textColor="@color/bg_white"
                 android:textColorHint="@color/bg_white" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -80,12 +80,16 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:hint="@string/mdp"
-            android:layout_margin="15dp"
             android:textColorHint="@color/bg_lightgrey"
             app:boxStrokeColor="@color/bg_white"
+            android:padding="10dp"
             app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
             app:hintTextColor="@color/bg_lightgrey"
             app:startIconDrawable="@drawable/ic_lock"
             app:startIconTint="@color/bg_lightgrey">
@@ -93,10 +97,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/bg_white"
-                android:textColorHint="@color/bg_white"
+                android:inputType="textPassword"
                 android:maxLength="30"
-                android:inputType="textPassword" />
+                android:textColor="@color/bg_white"
+                android:textColorHint="@color/bg_white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,14 +109,14 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_connexion"
         android:layout_width="200dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@color/bg_white"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/connexion"
         android:textColor="@color/dark"
         android:textSize="20sp"
-        app:cornerRadius="30dp"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -171,30 +175,5 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/successBg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bg_white"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/successLottie"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/check" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
