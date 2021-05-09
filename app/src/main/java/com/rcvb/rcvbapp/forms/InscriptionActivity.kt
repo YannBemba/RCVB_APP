@@ -129,7 +129,7 @@ class InscriptionActivity : AppCompatActivity() {
             } catch(e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@InscriptionActivity, e.message, Toast.LENGTH_LONG)
-                        .show()
+                            .show()
                 }
             }
         }
@@ -138,7 +138,7 @@ class InscriptionActivity : AppCompatActivity() {
     private fun checkLoggedInState() {
         if(mAuth.currentUser == null) {
             Toast.makeText(this, "Identifiant et/ou mot de passe incorrect", Toast.LENGTH_LONG)
-                .show()
+                    .show()
         } else {
             val intent = Intent(this@InscriptionActivity, ConnexionActivity::class.java)
             resetInput()
@@ -151,13 +151,13 @@ class InscriptionActivity : AppCompatActivity() {
             utilCollectionRef.add(util).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@InscriptionActivity, "Connexion réussie", Toast.LENGTH_LONG)
-                    .show()
+                        .show()
             }
             Log.d(TAG, "Utilisateur ajouté à Firestore")
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@InscriptionActivity, e.message, Toast.LENGTH_LONG)
-                    .show()
+                        .show()
             }
         }
     }

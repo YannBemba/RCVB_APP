@@ -34,8 +34,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/inscription"
             android:textSize="15sp"
-            android:textAlignment="center"
-            app:cornerRadius="10dp"
+            app:cornerRadius="15dp"
             app:strokeColor="@color/dark_blue"
             app:elevation="10dp"
             />
@@ -47,7 +46,7 @@
             android:textSize="15sp"
             android:fontFamily="@font/poppins_semibold"
             app:strokeColor="@color/dark_blue"
-            app:cornerRadius="10dp"
+            app:cornerRadius="15dp"
             app:elevation="10dp"/>
 
     </LinearLayout>

@@ -35,157 +35,154 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/btn_inscription"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.108">
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilNom"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/nom"
-            android:textColorHint="@color/bg_lightgrey"
-            app:boxStrokeColor="@color/bg_dark_blue"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintTextColor="@color/bg_dark_blue"
-            app:startIconDrawable="@drawable/ic_account_box"
-            app:startIconTint="@color/bg_lightgrey">
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            android:layout_marginTop="32dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_person">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:maxLength="30"
-                android:textColorHint="@color/bg_dark_blue" />
+                android:hint="@string/nom"
+                android:maxLength="100"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPrenom"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/prenom"
-            android:textColorHint="@color/bg_lightgrey"
-            app:boxStrokeColor="@color/bg_dark_blue"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintTextColor="@color/bg_dark_blue"
-            app:startIconDrawable="@drawable/ic_account_box"
-            app:startIconTint="@color/bg_lightgrey">
+            android:layout_marginTop="30dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_person">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/prenom"
                 android:inputType="text"
-                android:maxLength="30"
-                android:textColor="@color/bg_dark_blue" />
+                android:maxLength="100"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/email"
-            android:textColorHint="@color/bg_lightgrey"
-            app:counterEnabled="true"
-            app:counterMaxLength="50"
-            app:counterTextColor="@color/bg_google"
-            app:boxStrokeColor="@color/bg_dark_blue"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintTextColor="@color/bg_dark_blue"
-            app:startIconDrawable="@drawable/ic_email"
-            app:startIconTint="@color/bg_lightgrey">
+            android:layout_marginTop="30dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:maxLength="50"
-                android:textColor="@color/bg_dark_blue" />
+                android:maxLength="100"
+                android:maxLines="0" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilTel"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/tel"
-            app:prefixText="+33"
-            app:prefixTextColor="@color/bg_dark_blue"
-            android:textColorHint="@color/bg_lightgrey"
-            app:boxStrokeColor="@color/bg_dark_blue"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintTextColor="@color/bg_dark_blue"
-            app:startIconDrawable="@drawable/ic_phone"
-            app:startIconTint="@color/bg_lightgrey">
+            android:layout_marginTop="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_phone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/tel"
                 android:inputType="number"
-                android:maxLength="10"
-                android:textColor="@color/bg_dark_blue" />
+                android:maxLength="100"
+                android:maxLines="0" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilMdp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/mdp"
-            app:counterEnabled="true"
-            app:counterMaxLength="30"
-            android:textColorHint="@color/bg_lightgrey"
-            app:boxStrokeColor="@color/bg_dark_blue"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintTextColor="@color/bg_dark_blue"
-            app:startIconDrawable="@drawable/ic_lock"
-            app:startIconTint="@color/bg_lightgrey">
+            android:layout_marginTop="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/tv_dark_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_lock">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/mdp"
                 android:inputType="textPassword"
-                android:maxLength="30"
-                android:textColor="@color/bg_dark_blue" />
+                android:maxLength="100"
+                android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInscription"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="45dp"
+            android:text="@string/inscription"
+            app:cornerRadius="10dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
+            />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_inscription"
-        android:layout_width="220dp"
-        android:layout_height="69dp"
-        android:layout_marginBottom="52dp"
-        android:fontFamily="@font/poppins_bold"
-        android:gravity="center"
-        android:text="@string/inscription"
-        android:textSize="17sp"
-        app:cornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
