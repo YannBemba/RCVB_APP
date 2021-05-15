@@ -8,14 +8,15 @@
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     app:behavior_hideable="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/dark">
+    >
 
 
     <View
         android:id="@+id/viewround"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:background="@drawable/view_top_round"
+        android:background="@drawable/view_round"
+        android:backgroundTint="@color/tv_dark_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

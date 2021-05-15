@@ -156,6 +156,7 @@
             app:boxCornerRadiusTopEnd="20dp"
             app:boxCornerRadiusTopStart="20dp"
             app:endIconMode="password_toggle"
+            app:endIconCheckable="false"
             app:endIconTint="@color/tv_dark_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
