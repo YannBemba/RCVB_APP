@@ -63,6 +63,7 @@
     <string name="notification_channel_desc">This a test canal</string>
     <string name="bienvenue">Bienvenue</string>
     <string name="version">Version de l\'application : 1.0</string>
+    <string name="fa_tes_parti_nde_l_aventure">Faîtes parti \nde l\'aventure</string>
 
 
 </resources>

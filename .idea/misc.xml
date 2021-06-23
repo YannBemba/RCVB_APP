@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/godso/AndroidStudioProjects/RCVB/app/src/main/res/drawable/gradient.xml" value="0.2" />
         <entry key="..\:/Users/godso/AndroidStudioProjects/RCVB/app/src/main/res/layout/fragment_first.xml" value="0.18" />
+        <entry key="..\:/Users/godso/AndroidStudioProjects/RCVB/app/src/main/res/layout/fragment_home_auth.xml" value="0.16640625" />
         <entry key="..\:/Users/godso/AndroidStudioProjects/RCVB/app/src/main/res/layout/fragment_second.xml" value="0.21" />
         <entry key="..\:/Users/godso/AndroidStudioProjects/RCVB/app/src/main/res/layout/fragment_third.xml" value="0.2" />
+        <entry key="..\:/Users/godso/AndroidStudioProjects/RCVB/app/src/main/res/layout/fragment_view_pager.xml" value="0.17281420765027322" />
       </map>
     </option>
   </component>

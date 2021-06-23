@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".onboarding.screens.HomeAuthFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="350dp"
+        android:background="@drawable/gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="300dp"
+            android:src="@drawable/star"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/fa_tes_parti_nde_l_aventure"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/dark"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="32sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homeAuthIns"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        app:cornerRadius="10dp"
+        android:text="@string/inscription"
+        android:textColor="@color/dark"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:shadowColor="@color/bg_grey"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        app:strokeColor="@color/dark"
+        android:backgroundTint="@color/bg_white"
+        android:layout_marginTop="40dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homeAuthCo"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        app:cornerRadius="10dp"
+        app:elevation="20dp"
+        android:text="@string/connexion"
+        android:textColor="@color/bg_white"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:backgroundTint="@color/dark"
+        android:shadowColor="@color/bg_grey"
+        android:shadowDx="20"
+        android:shadowDy="20"
+        android:layout_marginTop="15dp"/>
+
+
+</LinearLayout>

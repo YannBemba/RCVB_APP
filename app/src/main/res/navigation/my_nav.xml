@@ -22,11 +22,8 @@
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
-            android:id="@+id/action_viewPagerFragment_to_inscriptionActivity2"
-            app:destination="@id/inscriptionActivity2" />
-        <action
-            android:id="@+id/action_viewPagerFragment_to_connexionActivity2"
-            app:destination="@id/connexionActivity2" />
+            android:id="@+id/action_viewPagerFragment_to_homeAuthFragment"
+            app:destination="@id/homeAuthFragment" />
     </fragment>
     <activity
         android:id="@+id/inscriptionActivity2"
@@ -38,4 +35,16 @@
         android:name="com.rcvb.rcvbapp.forms.ConnexionActivity"
         android:label="activity_connexion"
         tools:layout="@layout/activity_connexion" />
+    <fragment
+        android:id="@+id/homeAuthFragment"
+        android:name="com.rcvb.rcvbapp.onboarding.screens.HomeAuthFragment"
+        android:label="fragment_home_auth"
+        tools:layout="@layout/fragment_home_auth" >
+        <action
+            android:id="@+id/action_homeAuthFragment_to_inscriptionActivity2"
+            app:destination="@id/inscriptionActivity2" />
+        <action
+            android:id="@+id/action_homeAuthFragment_to_connexionActivity2"
+            app:destination="@id/connexionActivity2" />
+    </fragment>
 </navigation>

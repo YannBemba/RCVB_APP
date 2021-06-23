@@ -11,51 +11,12 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/vp_inscription"
-            style="@style/ButtonConnexion"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="@string/inscription"
-            android:textSize="16sp"
-            app:cornerRadius="15dp"
-            app:strokeColor="@color/dark_blue"
-            app:elevation="10dp"
-            />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/vp_connexion"
-            style="@style/ButtonConnexion"
-            android:text="@string/connexion"
-            android:textSize="17sp"
-            android:fontFamily="@font/poppins_semibold"
-            app:strokeColor="@color/dark_blue"
-            app:cornerRadius="15dp"
-            app:elevation="10dp"/>
-
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="620dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
