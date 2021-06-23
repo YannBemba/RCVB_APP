@@ -18,6 +18,10 @@ class FirstScreen : Fragment() {
     ): View {
         _binding = FragmentFirstBinding.inflate(layoutInflater)
 
+        binding.nextOne.setOnClickListener {
+
+        }
+
         return binding.root
     }
 

@@ -24,5 +24,4 @@ class RCVBAppActivity : AppCompatActivity() {
 
     }
 
-
 }

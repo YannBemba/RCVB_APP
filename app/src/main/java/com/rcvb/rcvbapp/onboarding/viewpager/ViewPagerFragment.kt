@@ -18,8 +18,8 @@ class ViewPagerFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         _binding = FragmentViewPagerBinding.inflate(layoutInflater)
 
@@ -32,15 +32,15 @@ class ViewPagerFragment : Fragment() {
         }
 
         val fragmentList = arrayListOf<Fragment>(
-            FirstScreen(),
-            SecondScreen(),
-            ThirdScreen()
+                FirstScreen(),
+                SecondScreen(),
+                ThirdScreen()
         )
 
         val adapter = ViewPagerAdapter(
-            fragmentList,
-            requireActivity().supportFragmentManager,
-            lifecycle
+                fragmentList,
+                requireActivity().supportFragmentManager,
+                lifecycle
         )
 
         binding.viewpager.adapter = adapter

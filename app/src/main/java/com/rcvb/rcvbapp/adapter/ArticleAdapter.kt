@@ -36,6 +36,7 @@ class ArticleAdapter(options: FirestoreRecyclerOptions<Article>)
         var imgCommentaire = binding.imgCommentaire
         var id = 0
         var description: String = ""
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {

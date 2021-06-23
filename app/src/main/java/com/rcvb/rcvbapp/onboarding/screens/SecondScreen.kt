@@ -18,6 +18,10 @@ class SecondScreen : Fragment() {
     ): View {
         _binding = FragmentSecondBinding.inflate(layoutInflater)
 
+        binding.nextTwo.setOnClickListener {
+
+        }
+
         return binding.root
 
     }
